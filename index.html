@@ -3531,6 +3531,156 @@
     .hero-title--banner::after {
       box-shadow: none !important;
     }
+
+
+    /* =========================================================
+       Ajustes pontuais solicitados:
+       1) rolagem correta dos links do menu mobile/âncoras;
+       2) fotos dos compositores sem corte e sem quebra no mobile.
+       Mantém o desenho original, alterando apenas comportamento e contenção.
+    ========================================================= */
+    html {
+      scroll-padding-top: 96px;
+    }
+
+    section[id],
+    main[id],
+    footer[id] {
+      scroll-margin-top: 96px;
+    }
+
+    .hero-composer-media {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      aspect-ratio: 1 / 1 !important;
+      min-height: 0 !important;
+      max-height: none !important;
+    }
+
+    .hero-composer-media img {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      transform: none !important;
+    }
+
+    .hero-composer-card:is(.is-active, :hover) .hero-composer-media img,
+    .hero-composer-card:focus-within .hero-composer-media img,
+    .hero-copy:has([data-composer-target="ennio-morricone"]:is(:hover, :focus-visible)) [data-composer-card="ennio-morricone"] .hero-composer-media img,
+    .hero-copy:has([data-composer-target="hans-zimmer"]:is(:hover, :focus-visible)) [data-composer-card="hans-zimmer"] .hero-composer-media img,
+    .hero-copy:has([data-composer-target="john-williams"]:is(:hover, :focus-visible)) [data-composer-card="john-williams"] .hero-composer-media img,
+    .hero-copy:has([data-composer-target="alan-silvestri"]:is(:hover, :focus-visible)) [data-composer-card="alan-silvestri"] .hero-composer-media img {
+      transform: none !important;
+    }
+
+    @media (max-width: 767.98px) {
+      html {
+        scroll-padding-top: 84px;
+      }
+
+      section[id],
+      main[id],
+      footer[id] {
+        scroll-margin-top: 84px;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .hero-composer-media {
+        max-height: none !important;
+      }
+    }
+
+    /* =========================================================
+   Ajuste cirúrgico: centralizar toggle do menu mobile
+   Mantém o layout original e corrige apenas alinhamento.
+========================================================= */
+
+    .nav-actions {
+      align-items: center !important;
+      justify-content: flex-end !important;
+    }
+
+    .nav-actions .menu-toggle {
+      display: none;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0 !important;
+      line-height: 1 !important;
+      text-align: center !important;
+    }
+
+    .nav-actions .menu-toggle i {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 1em !important;
+      height: 1em !important;
+      margin: 0 !important;
+      line-height: 1 !important;
+      font-size: 1.22rem !important;
+    }
+
+    @media (max-width: 1399.98px) {
+      .nav-actions .menu-toggle {
+        display: inline-flex !important;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .nav-actions {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: .45rem !important;
+        grid-auto-flow: initial !important;
+        grid-auto-columns: initial !important;
+      }
+
+      .nav-actions .menu-toggle,
+      .nav-actions .btn-gold {
+        width: 42px !important;
+        min-width: 42px !important;
+        height: 42px !important;
+        min-height: 42px !important;
+        flex: 0 0 42px !important;
+        padding: 0 !important;
+      }
+
+      .nav-actions .menu-toggle {
+        border-radius: 50% !important;
+      }
+
+      .nav-actions .menu-toggle__text,
+      .nav-actions .btn-gold span {
+        display: none !important;
+      }
+
+      .nav-actions .menu-toggle i,
+      .nav-actions .btn-gold i {
+        margin: 0 !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+
+      .nav-actions .menu-toggle,
+      .nav-actions .btn-gold {
+        width: 40px !important;
+        min-width: 40px !important;
+        height: 40px !important;
+        min-height: 40px !important;
+        flex-basis: 40px !important;
+      }
+
+      .nav-actions .menu-toggle i {
+        font-size: 1.16rem !important;
+      }
+    }
   </style>
 
   <noscript>
@@ -3583,7 +3733,7 @@
           <i class="bi bi-list" aria-hidden="true"></i><span class="menu-toggle__text">Menu</span>
         </button>
         <button class="btn btn-gold rounded-pill px-4" type="button" data-bs-toggle="modal" data-bs-target="#reservationModal">
-          <!-- <i class="bi bi-ticket-perforated me-1" aria-hidden="true"></i> --><span>Reservar convite</span>
+          <i class="bi bi-ticket-perforated me-1" aria-hidden="true"></i><span>Reservar convite</span>
         </button>
       </div>
     </div>
@@ -4767,19 +4917,41 @@
 
 
       const bindNavigationState = () => {
-        const links = $$('.primary-nav__link[href^="#"], .event-menu__link[href^="#"]');
-        const sections = [...new Set(links
+        const navigationLinks = $$('.primary-nav__link[href^="#"], .event-menu__link[href^="#"]');
+        const anchorLinks = $$('a[href^="#"]')
+          .filter(link => {
+            const hash = link.getAttribute('href');
+            return hash && hash !== '#' && !link.matches('[data-bs-toggle="modal"]');
+          });
+
+        const sections = [...new Set(navigationLinks
           .map(link => link.getAttribute('href'))
           .filter(Boolean)
           .map(hash => document.getElementById(hash.slice(1)))
           .filter(Boolean))];
 
-        if (!links.length || !sections.length) {
+        if (!anchorLinks.length && (!navigationLinks.length || !sections.length)) {
           return;
         }
 
+        const getTargetFromHash = hash => {
+          if (!hash || hash === '#') {
+            return null;
+          }
+
+          try {
+            return document.getElementById(decodeURIComponent(hash.slice(1)));
+          } catch (error) {
+            return document.getElementById(hash.slice(1));
+          }
+        };
+
         const setActiveSection = id => {
-          links.forEach(link => {
+          if (!id || !navigationLinks.length) {
+            return;
+          }
+
+          navigationLinks.forEach(link => {
             const isActive = link.getAttribute('href') === `#${id}`;
             link.classList.toggle('is-active', isActive);
 
@@ -4791,8 +4963,115 @@
           });
         };
 
+        const getScrollOffset = () => {
+          const topbar = $('.topbar');
+          const extraSpace = window.innerWidth < 768 ? 14 : 18;
+          return Math.ceil((topbar?.getBoundingClientRect().height || 0) + extraSpace);
+        };
+
+        const scrollToTarget = (target, behavior = 'smooth') => {
+          if (!target) {
+            return;
+          }
+
+          const shouldReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const top = Math.max(target.getBoundingClientRect().top + window.scrollY - getScrollOffset(), 0);
+
+          window.scrollTo({
+            top,
+            behavior: shouldReduceMotion ? 'auto' : behavior
+          });
+
+          if (!target.hasAttribute('tabindex')) {
+            target.setAttribute('tabindex', '-1');
+            target.dataset.navFocusAdded = 'true';
+          }
+
+          try {
+            target.focus({
+              preventScroll: true
+            });
+          } catch (error) {
+            target.focus();
+          }
+
+          if (target.dataset.navFocusAdded === 'true') {
+            target.addEventListener('blur', () => {
+              target.removeAttribute('tabindex');
+              delete target.dataset.navFocusAdded;
+            }, {
+              once: true
+            });
+          }
+        };
+
+        const updateHash = hash => {
+          if (!hash || window.location.hash === hash) {
+            return;
+          }
+
+          if (window.history?.pushState) {
+            window.history.pushState(null, '', hash);
+            return;
+          }
+
+          window.location.hash = hash;
+        };
+
+        const closeOffcanvasThenScroll = (link, callback) => {
+          const offcanvasElement = link.closest('.offcanvas');
+
+          if (!offcanvasElement || !window.bootstrap?.Offcanvas) {
+            callback();
+            return;
+          }
+
+          const isOpen = offcanvasElement.classList.contains('show');
+          const offcanvas = window.bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
+
+          if (!isOpen) {
+            callback();
+            return;
+          }
+
+          offcanvasElement.addEventListener('hidden.bs.offcanvas', () => {
+            window.requestAnimationFrame(callback);
+          }, {
+            once: true
+          });
+
+          offcanvas.hide();
+        };
+
+        const goToHash = (hash, sourceLink = null, behavior = 'smooth') => {
+          const target = getTargetFromHash(hash);
+
+          if (!target) {
+            return false;
+          }
+
+          setActiveSection(target.id);
+
+          const performScroll = () => {
+            updateHash(hash);
+            scrollToTarget(target, behavior);
+          };
+
+          if (sourceLink) {
+            closeOffcanvasThenScroll(sourceLink, performScroll);
+          } else {
+            performScroll();
+          }
+
+          return true;
+        };
+
         const getCurrentSectionId = () => {
-          const offset = Math.min(window.innerHeight * .36, 320);
+          if (!sections.length) {
+            return '';
+          }
+
+          const offset = getScrollOffset() + Math.min(window.innerHeight * .22, 180);
           let current = sections[0];
 
           sections.forEach(section => {
@@ -4807,7 +5086,7 @@
 
         let ticking = false;
         const updateActiveSection = () => {
-          if (ticking) {
+          if (ticking || !sections.length) {
             return;
           }
 
@@ -4818,21 +5097,48 @@
           });
         };
 
-        links.forEach(link => {
-          link.addEventListener('click', () => {
-            const targetId = link.getAttribute('href')?.slice(1);
-            if (targetId) {
-              setActiveSection(targetId);
+        anchorLinks.forEach(link => {
+          link.addEventListener('click', event => {
+            const hash = link.getAttribute('href');
+
+            if (!hash || hash === '#') {
+              return;
             }
+
+            const target = getTargetFromHash(hash);
+            if (!target) {
+              return;
+            }
+
+            event.preventDefault();
+            event.stopPropagation();
+            goToHash(hash, link);
           });
         });
 
-        updateActiveSection();
+        const handleInitialHash = () => {
+          if (window.location.hash) {
+            goToHash(window.location.hash, null, 'auto');
+          } else if (sections.length) {
+            updateActiveSection();
+          }
+        };
+
+        handleInitialHash();
+        window.addEventListener('load', handleInitialHash, {
+          once: true
+        });
         window.addEventListener('scroll', updateActiveSection, {
           passive: true
         });
         window.addEventListener('resize', updateActiveSection);
-        window.addEventListener('hashchange', updateActiveSection);
+        window.addEventListener('hashchange', () => {
+          if (window.location.hash) {
+            goToHash(window.location.hash, null, 'auto');
+          } else {
+            updateActiveSection();
+          }
+        });
       };
 
       const init = () => {
