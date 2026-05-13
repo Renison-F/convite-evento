@@ -1,31 +1,56 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#09070f">
-  <title>Tributo | OSCG</title>
-  <meta name="description" content="Convite interativo para o Tributo da Orquestra Sinfônica Camargo Guarnieri. Reserve seu convite pelo WhatsApp.">
+  <meta name="theme-color" content="#070816">
+  <meta name="description"
+    content="Página oficial do Tributo da Orquestra Sinfônica Camargo Guarnieri. Reserve seu convite pelo WhatsApp.">
+  <title>Tributo | Orquestra Sinfônica Camargo Guarnieri</title>
 
-  <!-- Bootstrap 5+ -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&family=Libre+Baskerville:wght@400;700&family=Playfair+Display:wght@700;800;900&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
-      --bg: #07050d;
-      --gold: #dca244;
-      --gold-2: #ffdf8c;
-      --gold-3: #8f5d19;
-      --cream: #fff1cf;
-      --muted: #d9c296;
-      --card: rgba(12, 10, 18, .74);
-      --border: rgba(255, 211, 117, .5);
-      --shadow: 0 24px 70px rgba(0, 0, 0, .45);
+      color-scheme: dark;
+      --page: #070816;
+      --page-deep: #03040b;
+      --navy: #091a35;
+      --wine: #341005;
+      --gold: #d99a36;
+      --gold-2: #f6c96a;
+      --gold-3: #fff0b8;
+      --cream: #fff3d2;
+      --muted: #d6bd86;
+      --soft: rgba(255, 255, 255, .07);
+      --soft-2: rgba(255, 255, 255, .11);
+      --card: rgba(10, 11, 22, .78);
+      --card-strong: rgba(13, 12, 21, .92);
+      --border: rgba(255, 218, 139, .22);
+      --border-strong: rgba(255, 224, 154, .46);
+      --whatsapp: #1f9d55;
+      --shadow-lg: 0 32px 95px rgba(0, 0, 0, .56);
+      --shadow-md: 0 20px 55px rgba(0, 0, 0, .36);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --font-base: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-title: "Cinzel", Georgia, serif;
+      --font-display: "Playfair Display", Georgia, serif;
+      --content: min(1180px, calc(100% - 32px));
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
@@ -34,14 +59,18 @@
     }
 
     body {
+      min-width: 320px;
       margin: 0;
       color: var(--cream);
       background:
-        radial-gradient(circle at 20% 12%, rgba(58, 105, 151, .35), transparent 28%),
-        radial-gradient(circle at 80% 10%, rgba(211, 143, 44, .18), transparent 24%),
-        linear-gradient(180deg, #081428 0%, var(--bg) 46%, #050406 100%);
-      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        radial-gradient(circle at 12% 7%, rgba(52, 116, 189, .46), transparent 27%),
+        radial-gradient(circle at 84% 9%, rgba(246, 201, 106, .20), transparent 23%),
+        radial-gradient(circle at 50% 56%, rgba(118, 47, 11, .22), transparent 34%),
+        linear-gradient(180deg, #06152f 0%, var(--page) 44%, var(--page-deep) 100%);
+      font-family: var(--font-base);
       overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
 
     body::before,
@@ -49,394 +78,396 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -2;
       pointer-events: none;
     }
 
     body::before {
+      z-index: -2;
       background-image:
-        radial-gradient(circle, rgba(255, 255, 255, .95) 0 1px, transparent 1.6px),
-        radial-gradient(circle, rgba(255, 213, 124, .85) 0 1px, transparent 1.4px),
-        radial-gradient(circle, rgba(134, 194, 255, .65) 0 1px, transparent 1.2px);
-      background-size: 120px 120px, 180px 180px, 230px 230px;
-      background-position: 0 0, 35px 70px, 90px 20px;
-      animation: starsMove 55s linear infinite;
-      opacity: .82;
+        radial-gradient(circle, rgba(255, 255, 255, .85) 0 1px, transparent 1.6px),
+        radial-gradient(circle, rgba(255, 218, 124, .75) 0 1px, transparent 1.45px),
+        linear-gradient(60deg, transparent 0 49.65%, rgba(255, 217, 131, .10) 50%, transparent 50.35%);
+      background-size: 120px 120px, 190px 190px, 260px 180px;
+      background-position: 0 0, 38px 68px, 0 12px;
+      opacity: .64;
+      animation: starsMove 70s linear infinite;
     }
 
     body::after {
       z-index: -1;
       background:
-        linear-gradient(90deg, rgba(220, 162, 68, .1), transparent 22%, transparent 78%, rgba(220, 162, 68, .1)),
-        radial-gradient(circle at center, transparent 0 45%, rgba(0, 0, 0, .45) 100%);
+        radial-gradient(circle at center, transparent 0 42%, rgba(0, 0, 0, .55) 100%),
+        linear-gradient(90deg, rgba(217, 154, 54, .11), transparent 18%, transparent 82%, rgba(217, 154, 54, .11));
     }
 
-    @keyframes starsMove {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-120px, 120px, 0); }
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    address {
+      margin-bottom: 0;
+      font-style: normal;
     }
 
     .font-cinzel {
-      font-family: "Cinzel", serif;
+      font-family: var(--font-title);
     }
 
-    .font-playfair {
-      font-family: "Playfair Display", serif;
+    .text-gold-soft {
+      color: var(--gold-3);
     }
 
-    .gold-text {
+    .text-muted-gold {
+      color: var(--muted);
+    }
+
+    .text-gradient-gold {
       color: transparent;
-      background: linear-gradient(180deg, #fff7c8 0%, #ffc55e 28%, #9c5a12 62%, #ffe5a4 100%);
+      background: linear-gradient(180deg, #fff9da 0%, #ffd374 21%, #b86f19 48%, #fff0b8 78%, #8c5511 100%);
       -webkit-background-clip: text;
       background-clip: text;
-      text-shadow: 0 4px 20px rgba(243, 171, 57, .25);
+      text-shadow: 0 0 34px rgba(246, 201, 106, .16);
     }
 
     .page-shell {
       position: relative;
-      min-height: 100vh;
-      padding: clamp(14px, 2vw, 26px);
+      min-height: 100svh;
     }
 
-    .invitation-frame {
-      position: relative;
-      width: min(1180px, 100%);
-      margin-inline: auto;
-      border: 1px solid rgba(255, 214, 122, .8);
-      outline: 4px double rgba(220, 162, 68, .45);
-      border-radius: 18px;
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      width: var(--content);
+      margin: 14px auto -78px;
+      border: 1px solid rgba(255, 224, 154, .20);
+      border-radius: 999px;
+      background: rgba(5, 6, 14, .58);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, .26);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 64px;
+      padding: .45rem .55rem .45rem 1rem;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      gap: .72rem;
+      text-decoration: none;
+    }
+
+    .brand-lockup__mark {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      place-items: center;
+      border: 1px solid rgba(255, 231, 164, .42);
+      border-radius: 50%;
+      color: #1d1105;
+      background: linear-gradient(180deg, #fff4c7, #d1902f);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .42), 0 10px 25px rgba(0, 0, 0, .28);
+      font-family: "Great Vibes", var(--font-display);
+      /* font-size: 1.7rem; */
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .brand-lockup__name {
+      display: block;
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(7, 11, 24, .76), rgba(17, 8, 8, .83)),
-        radial-gradient(circle at 50% 15%, rgba(69, 126, 177, .32), transparent 36%);
-      box-shadow: var(--shadow), inset 0 0 60px rgba(249, 181, 67, .08);
-      isolation: isolate;
+      color: var(--gold-3);
+      font-family: var(--font-title);
+      font-size: clamp(.78rem, 1.45vw, .98rem);
+      font-weight: 900;
+      letter-spacing: .045em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .invitation-frame::before,
-    .invitation-frame::after {
-      content: "✦";
-      position: absolute;
-      top: 12px;
-      color: var(--gold-2);
-      font-size: clamp(28px, 4vw, 48px);
-      opacity: .78;
-      z-index: 2;
-      text-shadow: 0 0 18px rgba(255, 211, 117, .7);
+    .brand-lockup__sub {
+      display: block;
+      overflow: hidden;
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .invitation-frame::before {
-      left: 18px;
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
     }
 
-    .invitation-frame::after {
-      right: 18px;
+    .section-wrap {
+      width: var(--content);
+      margin-inline: auto;
     }
 
     .hero {
       position: relative;
-      min-height: 100vh;
-      display: grid;
-      align-items: center;
-      padding: clamp(34px, 6vw, 76px) clamp(18px, 5vw, 68px);
+      isolation: isolate;
+      padding: clamp(7.2rem, 12vw, 9.2rem) 0 clamp(3rem, 6vw, 5rem);
+      overflow: hidden;
     }
 
-    .spotlight {
+    .hero::before,
+    .hero::after {
+      content: "";
       position: absolute;
-      top: -30px;
-      width: 260px;
-      height: 460px;
-      background: radial-gradient(ellipse at top, rgba(255, 255, 255, .72), rgba(255, 255, 255, .18) 28%, transparent 62%);
-      filter: blur(.5px);
-      opacity: .5;
+      z-index: -1;
       pointer-events: none;
-      mix-blend-mode: screen;
-      animation: spotlightPulse 4s ease-in-out infinite alternate;
     }
 
-    .spotlight.left {
-      left: -30px;
-      transform: rotate(-200deg);
+    .hero::before {
+      top: 6%;
+      left: 50%;
+      width: min(900px, 88vw);
+      height: min(900px, 88vw);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(246, 201, 106, .16), transparent 63%);
+      transform: translateX(-50%);
+      filter: blur(2px);
     }
 
-    .spotlight.right {
-      right: -30px;
-      transform: rotate(-160deg);
-      animation-delay: .7s;
+    .hero::after {
+      inset: auto 0 0;
+      height: 34%;
+      background: linear-gradient(180deg, transparent, rgba(3, 4, 11, .95));
     }
 
-    @keyframes spotlightPulse {
-      from { opacity: .36; }
-      to { opacity: .7; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
+      gap: clamp(1.4rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--gold-2);
+      font-size: clamp(.76rem, 1.4vw, .8rem);
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-family: var(--font-title);
+      font-size: clamp(3.15rem, 8.8vw, 7.65rem);
+      font-weight: 900;
+      line-height: .9;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+      filter: drop-shadow(0 18px 32px rgba(0, 0, 0, .62));
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-lead {
+      max-width: 640px;
+      margin-top: 1.35rem;
+      color: rgba(255, 243, 210, .86);
+      font-size: clamp(1.04rem, 1.9vw, 1.28rem);
+      line-height: 1.72;
+    }
+
+    .composer-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      margin: 1.35rem 0 0;
+      padding: 0;
+      list-style: none;
     }
 
     .composer-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: .55rem .9rem;
-      border: 1px solid rgba(255, 216, 137, .36);
+      min-height: 38px;
+      padding: .48rem .78rem;
+      border: 1px solid rgba(255, 224, 154, .26);
       border-radius: 999px;
+      color: var(--gold-3);
       background: rgba(255, 255, 255, .06);
-      color: var(--gold-2);
-      font-family: "Cinzel", serif;
-      font-weight: 700;
-      letter-spacing: .04em;
-      backdrop-filter: blur(8px);
-      box-shadow: inset 0 0 18px rgba(255, 207, 104, .06);
-      transform: translateY(0);
-      transition: transform .25s ease, border-color .25s ease, background .25s ease;
-    }
-
-    .composer-pill:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 216, 137, .72);
-      background: rgba(255, 255, 255, .1);
-    }
-
-    .main-title {
-      font-size: clamp(3.4rem, 12vw, 8.8rem);
-      line-height: .88;
-      letter-spacing: .06em;
+      box-shadow: inset 0 0 18px rgba(246, 201, 106, .05);
+      font-size: .82rem;
       font-weight: 900;
-      margin: 0;
-      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .65));
-      animation: titleGlow 3.4s ease-in-out infinite alternate;
-    }
-
-    @keyframes titleGlow {
-      from { filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .65)); }
-      to { filter: drop-shadow(0 0 24px rgba(255, 192, 85, .38)); }
-    }
-
-    .sub-kicker {
-      color: var(--muted);
-      letter-spacing: .16em;
+      letter-spacing: .035em;
       text-transform: uppercase;
-      font-weight: 700;
-      font-size: clamp(.78rem, 1.6vw, 1rem);
+      backdrop-filter: blur(12px);
     }
 
-    .ornament-line {
+    .hero-actions {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      color: var(--gold);
-      opacity: .95;
-      margin: 12px auto 48px;
-      max-width: 540px;
+      flex-wrap: wrap;
+      gap: .85rem;
+      margin-top: 2rem;
     }
 
-    .ornament-line::before,
-    .ornament-line::after {
-      content: "";
-      height: 1px;
-      flex: 1;
-      background: linear-gradient(90deg, transparent, var(--gold));
+    .proof-item {
+      min-height: 92px;
+      padding: 1rem;
+      border: 1px solid rgba(255, 224, 154, .18);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .055);
+      box-shadow: inset 0 0 24px rgba(246, 201, 106, .035);
     }
 
-    .ornament-line::after {
-      background: linear-gradient(90deg, var(--gold), transparent);
+    .proof-item strong {
+      display: block;
+      color: var(--gold-3);
+      font-family: var(--font-title);
+      font-size: 1.02rem;
+      font-weight: 900;
+      line-height: 1.1;
     }
 
-    .glass-card {
-      background: var(--card);
-      border: 1px solid rgba(255, 218, 135, .24);
-      border-radius: 24px;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, .28);
-      backdrop-filter: blur(14px);
+    .proof-item span {
+      display: block;
+      margin-top: .35rem;
+      color: var(--muted);
+      font-size: .83rem;
+      line-height: 1.35;
     }
 
-    .event-card {
+    .hero-panel {
       position: relative;
-      min-height: 360px;
-      background:
-        radial-gradient(circle at 50% 10%, rgba(255, 252, 235, .72), transparent 18%),
-        linear-gradient(135deg, rgba(255, 246, 218, .96), rgba(214, 181, 116, .94));
-      color: #251606;
-      border: 4px double #9d681e;
-      border-radius: 14px;
-      padding: clamp(22px, 4vw, 44px) clamp(20px, 4vw, 34px) 84px;
-      box-shadow: 0 18px 44px rgba(0, 0, 0, .36), inset 0 0 20px rgba(96, 57, 8, .16);
+      padding: clamp(1.1rem, 2.6vw, 1.45rem);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(255, 247, 214, .05);
       overflow: hidden;
     }
 
-    .event-card::before {
-      content: "❦";
+    .hero-panel::before {
+      content: "";
       position: absolute;
-      top: -26px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 78px;
-      height: 78px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      color: #6f4310;
-      background: rgba(255, 236, 179, .9);
-      border: 1px solid rgba(111, 67, 16, .35);
-      font-size: 2rem;
+      inset: 12px;
+      border-radius: calc(var(--radius-lg) - 12px);
+      pointer-events: none;
     }
 
-    .event-card .date {
-      margin-top: 10px;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.5rem, 5.6vw, 4.1rem);
+    .poster-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .poster-mark {
+      align-self: center;
+      color: transparent;
+      background: linear-gradient(180deg, #fff7d3, #e5a84d 52%, #683104 58%, #fff0bd 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-family: "Great Vibes", var(--font-display);
+      font-size: clamp(6rem, 11vw, 8.5rem);
+      line-height: .72;
+      filter: drop-shadow(0 16px 18px rgba(0, 0, 0, .65));
+    }
+
+    .poster-info {
+      display: grid;
+      gap: .85rem;
+    }
+
+    .date-card {
+      padding: 1.15rem;
+      border: 3px double rgba(108, 65, 14, .78);
+      border-radius: 15px;
+      color: #211205;
+      background: linear-gradient(135deg, #fff4cf, #d4a05a 52%, #fff1c8);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, .34), inset 0 0 0 1px rgba(255, 252, 229, .52);
+      text-align: center;
+    }
+
+    .date-card__day {
+      display: block;
+      font-family: "Libre Baskerville", var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 3.55rem);
       font-weight: 700;
       line-height: 1;
     }
 
-    .event-card .place,
-    .event-card .time {
-      font-family: "Cinzel", serif;
+    .date-card__meta {
+      display: block;
+      margin-top: .45rem;
+      font-family: var(--font-title);
       font-weight: 900;
-      line-height: 1.05;
-      font-size: clamp(1.6rem, 3.8vw, 2.5rem);
+      letter-spacing: .03em;
+      text-transform: uppercase;
     }
 
-    .event-location-badge {
+    .poster-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .75rem;
+    }
+
+    .mini-detail {
+      padding: .92rem;
+      border: 1px solid rgba(255, 224, 154, .22);
+      border-radius: 15px;
+      background: rgba(0, 0, 0, .28);
+      backdrop-filter: blur(12px);
+    }
+
+    .mini-detail span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .mini-detail strong {
+      display: block;
+      margin-top: .18rem;
+      color: var(--cream);
+      font-size: 1.04rem;
+      font-weight: 900;
+    }
+
+    .scroll-cue {
       position: absolute;
       left: 50%;
-      bottom: 18px;
+      bottom: 1.2rem;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: rgba(255, 243, 210, .72);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
       transform: translateX(-50%);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      width: max-content;
-      max-width: calc(100% - 36px);
-      padding: .72rem 1.1rem;
-      border-radius: 999px;
-      background: rgba(37, 22, 6, .92);
-      color: #f7dfab;
-      border: 1px solid rgba(157, 104, 30, .6);
-      font-weight: 800;
-      font-size: .92rem;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, .22);
-      transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
-      z-index: 2;
-      white-space: nowrap;
     }
 
-    .event-location-badge:hover {
-      transform: translateX(-50%) translateY(-2px);
-      color: #fff2c9;
-      background: rgba(55, 33, 10, .96);
-      border-color: rgba(220, 162, 68, .85);
-    }
-
-    .brand-card {
-      min-height: 360px;
-      border-color: rgba(255, 218, 135, .32);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, .35), inset 0 0 34px rgba(255, 213, 124, .04);
-    }
-
-    .brand-monogram {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(4rem, 10vw, 7rem);
-      line-height: .82;
-      color: transparent;
-      background: linear-gradient(180deg, #fff8dc, #d69a40 55%, #fff1b0);
-      -webkit-background-clip: text;
-      background-clip: text;
-      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .55));
-    }
-
-    .brand-monogram-os {
-      font-size: clamp(3.4rem, 8vw, 6.4rem);
-      line-height: .9;
-      letter-spacing: -.06em;
-      margin-bottom: .85rem;
-    }
-
-    .section-title {
-      font-family: "Cinzel", serif;
-      font-weight: 900;
-      color: var(--gold-2);
-      letter-spacing: .07em;
-    }
-
-    .info-icon {
-      width: 46px;
-      height: 46px;
-      flex: 0 0 46px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(255, 230, 160, .26), rgba(220, 162, 68, .1));
-      color: var(--gold-2);
-      border: 1px solid rgba(255, 218, 135, .28);
-      font-size: 1.35rem;
-    }
-
-    .event-info-card {
-      height: 100%;
-      padding: 22px;
-      border-radius: 22px;
-      background: rgba(255, 255, 255, .06);
-      border: 1px solid rgba(255, 218, 135, .2);
-      box-shadow: inset 0 0 24px rgba(255, 213, 124, .035);
-      transition: transform .24s ease, border-color .24s ease, background .24s ease;
-    }
-
-    .event-info-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 218, 135, .42);
-      background: rgba(255, 255, 255, .09);
-    }
-
-    .event-info-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
-    }
-
-    .event-info-title {
-      display: block;
-      color: var(--cream);
-      font-weight: 800;
-      line-height: 1.2;
-    }
-
-    .event-info-value {
-      color: var(--muted);
-      line-height: 1.45;
-      margin: 0;
-    }
-
-    .event-info-featured {
-      background: linear-gradient(135deg, rgba(242, 189, 94, .12), rgba(255, 255, 255, .055));
-    }
-
-    .benefit-card {
-      height: 100%;
-      padding: 20px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, .055);
-      border: 1px solid rgba(255, 218, 135, .18);
-    }
-
-    .benefit-card strong {
-      color: var(--gold-2);
-    }
-
-    .action-stack {
-      /* width: min(260px, 100%); */
-      margin-left: auto;
-      display: grid;
-      gap: 12px;
-    }
-
-    .action-stack .btn {
-      width: 100%;
-      min-height: 56px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      white-space: normal;
-      line-height: 1.25;
+    .scroll-cue i {
+      animation: scrollPulse 1.6s ease-in-out infinite;
     }
 
     .btn-gold {
@@ -448,31 +479,428 @@
       --bs-btn-hover-border-color: #ffe2a3;
       --bs-btn-active-bg: #d99a39;
       --bs-btn-active-border-color: #d99a39;
-      font-weight: 800;
-      letter-spacing: .02em;
-      box-shadow: 0 14px 26px rgba(242, 189, 94, .22);
+      box-shadow: 0 16px 30px rgba(242, 189, 94, .22), inset 0 1px 0 rgba(255, 255, 255, .42);
+      font-weight: 900;
+      letter-spacing: .015em;
     }
 
     .btn-whatsapp {
       --bs-btn-color: #fff;
-      --bs-btn-bg: #1f9d55;
-      --bs-btn-border-color: #1f9d55;
+      --bs-btn-bg: var(--whatsapp);
+      --bs-btn-border-color: var(--whatsapp);
       --bs-btn-hover-color: #fff;
       --bs-btn-hover-bg: #24b962;
       --bs-btn-hover-border-color: #24b962;
-      font-weight: 800;
-      box-shadow: 0 14px 26px rgba(31, 157, 85, .22);
+      box-shadow: 0 16px 30px rgba(31, 157, 85, .22);
+      font-weight: 900;
+    }
+
+    .btn-outline-warning {
+      --bs-btn-color: #ffe39b;
+      --bs-btn-border-color: rgba(255, 227, 155, .64);
+      --bs-btn-hover-color: #170d04;
+      --bs-btn-hover-bg: #ffe39b;
+      --bs-btn-hover-border-color: #ffe39b;
+      font-weight: 900;
+    }
+
+    .btn-outline-light {
+      --bs-btn-color: rgba(255, 243, 210, .9);
+      --bs-btn-border-color: rgba(255, 255, 255, .28);
+      --bs-btn-hover-color: #160f08;
+      --bs-btn-hover-bg: #fff3d2;
+      --bs-btn-hover-border-color: #fff3d2;
+      font-weight: 900;
     }
 
     .pulse-cta {
-      position: relative;
-      isolation: isolate;
-      animation: ctaPulse 1.9s ease-in-out infinite;
+      animation: ctaPulse 2.2s ease-in-out infinite;
     }
 
-    @keyframes ctaPulse {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-2px) scale(1.025); }
+    .section-block {
+      position: relative;
+      padding: clamp(2.4rem, 6vw, 5.6rem) 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto clamp(1.4rem, 3vw, 2.2rem);
+      text-align: center;
+    }
+
+    .section-title {
+      color: var(--gold-3);
+      font-family: var(--font-title);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, .64), 0 0 18px rgba(246, 201, 106, .18);
+    }
+
+    .section-title.display-6,
+    .section-title.h1,
+    .section-title.display-5 {
+      font-size: clamp(1.85rem, 4vw, 3.1rem);
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.7vw, 1.14rem);
+      line-height: 1.72;
+    }
+
+    .glass-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(13, 14, 26, .82), rgba(34, 15, 7, .74)),
+        radial-gradient(circle at 50% 0, rgba(255, 215, 125, .10), transparent 38%);
+      box-shadow: var(--shadow-md), inset 0 0 0 1px rgba(255, 244, 204, .045);
+      backdrop-filter: blur(18px);
+    }
+
+    .feature-card,
+    .info-card,
+    .step-card,
+    .benefit-card {
+      height: 100%;
+      border: 1px solid rgba(255, 224, 154, .18);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 221, 144, .035));
+      box-shadow: inset 0 0 24px rgba(246, 201, 106, .035);
+      transition: transform .24s ease, border-color .24s ease, background .24s ease;
+    }
+
+    .feature-card:hover,
+    .info-card:hover,
+    .step-card:hover {
+      border-color: rgba(255, 224, 154, .42);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .095), rgba(255, 221, 144, .05));
+      transform: translateY(-5px);
+    }
+
+    .feature-card {
+      padding: clamp(1.2rem, 2.4vw, 1.55rem);
+    }
+
+    .feature-card__icon,
+    .info-card__icon,
+    .step-card__number {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      flex: 0 0 52px;
+      place-items: center;
+      border-radius: 8px;
+      color: #1b1106;
+      background: linear-gradient(180deg, #ffe6a3, #c07a22);
+      box-shadow: 0 9px 20px rgba(0, 0, 0, .27);
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    .feature-card h3,
+    .step-card h3 {
+      margin: 1rem 0 .55rem;
+      color: var(--cream);
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .feature-card p,
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    .experience-band {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(1.4rem, 3vw, 2rem);
+    }
+
+    .experience-band::before {
+      content: "";
+      position: absolute;
+      inset: -40% auto auto -10%;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(246, 201, 106, .18), transparent 65%);
+      pointer-events: none;
+    }
+
+    .composer-card {
+      position: relative;
+      height: 100%;
+      min-height: 160px;
+      padding: 1.25rem;
+      border: 1px solid rgba(255, 224, 154, .18);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .075), rgba(255, 221, 144, .04)),
+        radial-gradient(circle at 50% 0, rgba(255, 224, 154, .12), transparent 52%);
+      overflow: hidden;
+    }
+
+    .composer-card::after {
+      content: "♪";
+      position: absolute;
+      right: 1rem;
+      bottom: -.35rem;
+      color: rgba(255, 224, 154, .10);
+      font-family: var(--font-display);
+      font-size: 6rem;
+      line-height: 1;
+    }
+
+    .composer-card span {
+      display: inline-flex;
+      margin-bottom: .8rem;
+      color: var(--gold-2);
+      font-size: .75rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .composer-card strong {
+      position: relative;
+      z-index: 1;
+      display: block;
+      color: var(--cream);
+      font-family: var(--font-title);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.08;
+      text-transform: uppercase;
+    }
+
+    .info-card {
+      padding: clamp(1.05rem, 2vw, 1.3rem);
+    }
+
+    .info-card__head {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      margin-bottom: .9rem;
+    }
+
+    .info-card__icon {
+      width: 48px;
+      height: 48px;
+      flex-basis: 48px;
+      font-size: 1.22rem;
+    }
+
+    .info-card__title {
+      display: block;
+      color: var(--cream);
+      font-weight: 900;
+      line-height: 1.16;
+    }
+
+    .info-card__text {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .info-card--featured {
+      border-color: rgba(255, 224, 154, .34);
+      background: linear-gradient(135deg, rgba(246, 201, 106, .13), rgba(255, 255, 255, .055));
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .72rem;
+    }
+
+    .countdown__item {
+      min-width: 0;
+      padding: .85rem .55rem;
+      border: 1px solid rgba(255, 224, 154, .24);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .06);
+      text-align: center;
+    }
+
+    .countdown__number {
+      display: block;
+      color: var(--gold-3);
+      font-family: var(--font-title);
+      font-size: clamp(1.35rem, 3vw, 2.2rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .countdown__label {
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .step-card {
+      padding: clamp(1.1rem, 2.3vw, 1.45rem);
+    }
+
+    .step-card__number {
+      border-radius: 50%;
+      font-family: var(--font-title);
+      font-size: 1.25rem;
+    }
+
+    .quick-card {
+      padding: clamp(1.25rem, 3vw, 2rem);
+    }
+
+    .action-stack,
+    .quick-actions {
+      display: grid;
+      gap: .85rem;
+    }
+
+    .message-box {
+      border: 1px solid rgba(255, 224, 154, .24);
+      color: var(--cream);
+      background: linear-gradient(180deg, rgba(242, 189, 94, .13), rgba(255, 255, 255, .045));
+    }
+
+    .ticket-input-card {
+      padding: 1rem;
+      border: 1px solid rgba(255, 224, 154, .18);
+      border-radius: 0.375rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .065), rgba(255, 221, 144, .04));
+    }
+
+    .ticket-input-card .form-label {
+      color: var(--gold-3);
+      font-weight: 900;
+    }
+
+    .form-control,
+    .form-select {
+      color: var(--cream);
+      border-color: rgba(255, 224, 154, .22);
+      background-color: rgba(255, 255, 255, .075);
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      color: var(--cream);
+      border-color: rgba(255, 224, 154, .66);
+      background-color: rgba(255, 255, 255, .1);
+      box-shadow: 0 0 0 .25rem rgba(217, 154, 54, .16);
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 243, 210, .46);
+    }
+
+    .total-price {
+      color: var(--gold-3);
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .support-logo {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      display: grid;
+      width: min(250px, 100%);
+      min-height: 116px;
+      place-items: center;
+      padding: clamp(14px, 2vw, 22px);
+      border: 1px solid rgba(255, 224, 154, .26);
+      border-radius: 20px;
+      color: var(--cream);
+      box-shadow:
+        0 20px 46px rgba(0, 0, 0, .36),
+        inset 0 1px 0 rgba(255, 252, 229, .24),
+        inset 0 0 0 1px rgba(255, 224, 154, .12);
+      text-align: center;
+      text-decoration: none;
+      transition: transform .24s ease, border-color .24s ease, background .24s ease;
+    }
+
+    .support-logo::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      z-index: -1;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, .16), transparent 64%),
+        linear-gradient(135deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, .035));
+      pointer-events: none;
+    }
+
+    .support-logo:hover {
+      border-color: rgba(255, 229, 166, .50);
+      transform: translateY(-5px);
+    }
+
+    .support-logo img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 80%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .support-logo__fallback {
+      position: relative;
+      z-index: 1;
+      display: block;
+      color: var(--gold-3);
+      font-family: var(--font-title);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, .70);
+    }
+
+    .footer-note {
+      max-width: var(--content);
+      margin-inline: auto;
+      padding: clamp(2rem, 5vw, 3rem) 0 7.5rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255, 224, 154, .18);
+      text-align: center;
+    }
+
+    .poster-contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem 1.4rem;
+      color: var(--gold-3);
+      font-family: "Libre Baskerville", var(--font-display);
+      font-size: clamp(1rem, 2vw, 1.32rem);
+      text-shadow: 0 2px 0 rgba(0, 0, 0, .72);
+    }
+
+    .poster-contact-line a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: inherit;
+      text-decoration: none;
+      transition: color .22s ease, transform .22s ease;
+    }
+
+    .poster-contact-line a:hover {
+      color: #fff7d0;
+      transform: translateY(-2px);
     }
 
     .floating-whatsapp {
@@ -480,82 +908,53 @@
       right: 18px;
       bottom: 18px;
       z-index: 1040;
+      display: grid;
       width: 62px;
       height: 62px;
-      display: grid;
       place-items: center;
+      border: 1px solid rgba(255, 255, 255, .25);
       border-radius: 50%;
       color: #fff;
-      background: #1f9d55;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, .38);
-      text-decoration: none;
+      background: var(--whatsapp);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .44), 0 0 0 7px rgba(31, 157, 85, .12);
       font-size: 1.9rem;
+      text-decoration: none;
       animation: floatBtn 2.4s ease-in-out infinite;
     }
 
-    @keyframes floatBtn {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+    .mobile-cta-bar {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+      z-index: 1039;
+      display: none;
+      gap: .65rem;
+      padding: .65rem;
+      border: 1px solid rgba(255, 224, 154, .22);
+      border-radius: 24px;
+      background: rgba(6, 7, 14, .78);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .44);
+      backdrop-filter: blur(16px);
     }
 
-    .countdown-box {
-      min-width: 86px;
-      padding: 12px 10px;
+    .modal-content {
+      border: 1px solid rgba(255, 224, 154, .34);
       border-radius: 18px;
-      background: rgba(255, 255, 255, .07);
-      border: 1px solid rgba(255, 218, 135, .22);
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 50% 0, rgba(255, 214, 120, .12), transparent 30%),
+        linear-gradient(180deg, rgba(11, 12, 23, .99), rgba(34, 15, 7, .99));
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .62);
     }
 
-    .countdown-number {
-      display: block;
-      color: var(--gold-2);
-      font-family: "Cinzel", serif;
-      font-size: clamp(1.5rem, 3vw, 2.3rem);
-      line-height: 1;
-      font-weight: 900;
+    .modal-header,
+    .modal-footer {
+      border-color: rgba(255, 224, 154, .18);
     }
 
-    .countdown-label {
-      color: var(--muted);
-      font-size: .75rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .support-logo {
-      width: min(230px, 100%);
-      aspect-ratio: 1 / 1;
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid rgba(255, 218, 135, .18);
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      color: #1b1410;
-      text-align: center;
-      box-shadow: 0 14px 34px rgba(0, 0, 0, .22), inset 0 0 24px rgba(255, 213, 124, .04);
-      transition: transform .24s ease, border-color .24s ease, background .24s ease;
-    }
-
-    .support-logo:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 218, 135, .48);
-      background: #fff;
-    }
-
-    .support-logo img {
-      display: block;
-      width: 100%;
-      max-width: 180px;
-      height: auto;
-      max-height: 180px;
-      object-fit: contain;
-      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, .18));
-    }
-
-    .support-logo.logo-light,
-    .support-logo.logo-transparent {
-      background: #fff;
+    .is-hidden {
+      display: none !important;
     }
 
     .reveal {
@@ -569,369 +968,3068 @@
       transform: translateY(0);
     }
 
-    .modal-content {
-      background: linear-gradient(180deg, rgba(14, 10, 18, .98), rgba(26, 15, 11, .98));
-      border: 1px solid rgba(255, 218, 135, .28);
-      color: var(--cream);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
+    @keyframes starsMove {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+
+      to {
+        transform: translate3d(-120px, 120px, 0);
+      }
     }
 
-    .modal-header,
-    .modal-footer {
-      border-color: rgba(255, 218, 135, .18);
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(6px);
+      }
     }
 
-    .form-control,
-    .form-select {
-      color: var(--cream);
-      background-color: rgba(255, 255, 255, .07);
-      border-color: rgba(255, 218, 135, .22);
+    @keyframes ctaPulse {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-2px) scale(1.025);
+      }
     }
 
-    .form-control:focus,
-    .form-select:focus {
-      color: var(--cream);
-      background-color: rgba(255, 255, 255, .1);
-      border-color: rgba(255, 218, 135, .65);
-      box-shadow: 0 0 0 .25rem rgba(220, 162, 68, .16);
+    @keyframes floatBtn {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
     }
 
-    .form-control::placeholder {
-      color: rgba(255, 241, 207, .48);
-    }
+    @media (max-width: 1199.98px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-    .form-select option {
-      color: #1b1410;
-      background-color: #fff;
-    }
-
-    .form-select option:checked {
-      color: #fff;
-      background-color: #2b6fd2;
-    }
-
-    .total-box {
-      background: rgba(242, 189, 94, .12);
-      border: 1px solid rgba(255, 218, 135, .24);
-      color: var(--cream);
-    }
-
-    .total-price {
-      color: var(--gold-2);
-      font-size: 1.35rem;
-      font-weight: 900;
-    }
-
-    .ticket-input-card {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, .055);
-      border: 1px solid rgba(255, 218, 135, .18);
-    }
-
-    .ticket-input-card .form-label {
-      font-weight: 800;
-      color: var(--gold-2);
-    }
-
-    .footer-note {
-      color: var(--muted);
-      border-top: 1px solid rgba(255, 218, 135, .14);
+      .hero-panel {
+        max-width: 720px;
+        margin-inline: auto;
+      }
     }
 
     @media (max-width: 991.98px) {
-      .hero {
-        min-height: auto;
+      :root {
+        --content: min(100% - 24px, 1180px);
       }
 
-      .action-stack {
-        margin-left: 0;
-        width: 100%;
+      .topbar {
+        margin-top: 10px;
+        margin-bottom: -74px;
+      }
+
+      .nav-actions .btn-outline-light {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 6.6rem;
       }
     }
 
     @media (max-width: 767.98px) {
+      :root {
+        --content: min(100% - 18px, 1180px);
+      }
+
+      .topbar {
+        border-radius: 24px;
+      }
+
+      .topbar__inner {
+        min-height: 62px;
+        padding-left: .7rem;
+      }
+
+      .brand-lockup__mark {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+      }
+
+      .brand-lockup__sub {
+        display: none;
+      }
+
+      .nav-actions .btn-gold {
+        min-height: 44px;
+        padding-inline: .9rem !important;
+        font-size: .86rem;
+      }
+
       .hero {
-        padding-top: 54px;
-        padding-bottom: 46px;
+        padding-top: 6.2rem;
+        padding-bottom: 2.4rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.7rem, 15vw, 4.7rem);
+        letter-spacing: .018em;
+      }
+
+      .hero-lead {
+        font-size: 1rem;
+        line-height: 1.62;
+      }
+
+      .hero-actions .btn,
+      .action-stack .btn,
+      .quick-actions .btn {
+        width: 100%;
+      }
+
+      .composer-strip {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .composer-pill {
         width: 100%;
+        font-size: .72rem;
       }
 
-      .event-card,
-      .brand-card {
-        min-height: 320px;
+      .poster-detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-block {
+        padding: 2.4rem 0;
       }
 
       .floating-whatsapp {
-        width: 56px;
-        height: 56px;
-        font-size: 1.6rem;
+        display: none;
+      }
+
+      .mobile-cta-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-note {
+        padding-bottom: 6.4rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .brand-lockup__name {
+        max-width: 132px;
+      }
+
+      .nav-actions .btn-gold span {
+        display: none;
+      }
+
+      .hero-panel {
+        padding: .75rem;
+        border-radius: 24px;
+      }
+
+      .date-card {
+        border-width: 5px;
+      }
+
+      .proof-item {
+        min-height: auto;
       }
 
       .support-logo {
-        width: min(180px, 100%);
-        padding: 18px;
+        width: 100%;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+      }
+    }
+
+
+
+
+    :root {
+      --content: min(1200px, calc(100% - clamp(24px, 5vw, 56px)));
+      --surface: rgba(9, 10, 22, .74);
+      --surface-strong: rgba(11, 10, 20, .92);
+      --surface-warm: rgba(57, 23, 6, .62);
+      --line-gold: rgba(255, 224, 154, .28);
+      --line-gold-strong: rgba(255, 229, 166, .56);
+      --glow-gold: rgba(246, 201, 106, .22);
+      --glow-blue: rgba(60, 130, 210, .20);
+      --ease-ui: cubic-bezier(.2, .8, .2, 1);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 16% 6%, rgba(61, 130, 211, .42), transparent 26%),
+        radial-gradient(circle at 86% 10%, rgba(246, 201, 106, .24), transparent 24%),
+        radial-gradient(circle at 50% 35%, rgba(255, 224, 154, .08), transparent 28%),
+        radial-gradient(circle at 52% 72%, rgba(125, 47, 9, .30), transparent 36%),
+        linear-gradient(180deg, #071935 0%, #060916 42%, #03040a 100%);
+    }
+
+    body::after {
+      background:
+        linear-gradient(90deg, rgba(217, 154, 54, .14), transparent 17%, transparent 83%, rgba(217, 154, 54, .14)),
+        radial-gradient(circle at 50% 12%, transparent 0 18%, rgba(0, 0, 0, .18) 52%, rgba(0, 0, 0, .70) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, .025), transparent 28%, rgba(0, 0, 0, .28));
+    }
+
+    .topbar {
+      max-width: 1200px;
+      margin-top: 18px;
+      margin-bottom: -86px;
+      border-color: rgba(255, 229, 166, .30);
+      background:
+        linear-gradient(180deg, rgba(13, 15, 31, .78), rgba(5, 6, 14, .64)),
+        radial-gradient(circle at 12% 0, rgba(255, 224, 154, .10), transparent 30%);
+      box-shadow:
+        0 22px 55px rgba(0, 0, 0, .34),
+        inset 0 1px 0 rgba(255, 255, 255, .08),
+        inset 0 -1px 0 rgba(255, 224, 154, .08);
+    }
+
+    .topbar__inner {
+      min-height: 68px;
+      padding: .55rem .65rem .55rem 1.1rem;
+    }
+
+    /* .brand-lockup__mark {
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .52),
+        0 12px 26px rgba(0, 0, 0, .34),
+        0 0 0 6px rgba(246, 201, 106, .055);
+    } */
+
+    .brand-lockup__name {
+      letter-spacing: .06em;
+    }
+
+    .nav-actions .btn {
+      min-height: 48px;
+    }
+
+    .hero {
+      padding-top: clamp(7.6rem, 11vw, 9.6rem);
+      padding-bottom: clamp(3.3rem, 7vw, 5.8rem);
+    }
+
+    .hero::before {
+      top: 2%;
+      width: min(1040px, 94vw);
+      height: min(1040px, 94vw);
+      background:
+        radial-gradient(circle, rgba(246, 201, 106, .18), transparent 58%),
+        radial-gradient(circle at 36% 34%, rgba(72, 147, 229, .16), transparent 44%);
+    }
+
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(390px, .95fr);
+      gap: clamp(2rem, 5vw, 4.6rem);
+    }
+
+    .hero-copy {
+      position: relative;
+      max-width: 705px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      line-height: 1.35;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, .35);
+    }
+
+    .eyebrow::after {
+      content: "";
+      display: inline-block;
+      width: clamp(42px, 7vw, 92px);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255, 224, 154, .70), transparent);
+    }
+
+    .section-heading .eyebrow::before,
+    .section-heading .eyebrow::after,
+    .quick-card .eyebrow::after,
+    .footer-note .eyebrow::after,
+    .modal-header .eyebrow::after {
+      display: none;
+    }
+
+    .hero-title {
+      max-width: 760px;
+      font-size: clamp(3.35rem, 8.4vw, 8.1rem);
+      line-height: .86;
+      letter-spacing: .028em;
+      filter:
+        drop-shadow(0 10px 0 rgba(35, 13, 0, .70)) drop-shadow(0 26px 38px rgba(0, 0, 0, .64));
+    }
+
+    .hero-lead {
+      max-width: 690px;
+      margin-top: 1.55rem;
+      color: rgba(255, 243, 210, .90);
+      font-size: clamp(1.06rem, 1.75vw, 1.31rem);
+      line-height: 1.78;
+    }
+
+    .composer-strip {
+      gap: .72rem;
+      margin-top: 1.6rem;
+    }
+
+    .composer-pill {
+      min-height: 40px;
+      padding: .52rem .88rem;
+      border-color: rgba(255, 224, 154, .34);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .075), rgba(255, 221, 144, .035));
+      box-shadow:
+        inset 0 0 18px rgba(246, 201, 106, .055),
+        0 10px 24px rgba(0, 0, 0, .16);
+      transition: transform .24s var(--ease-ui), border-color .24s var(--ease-ui), background .24s var(--ease-ui);
+    }
+
+    .composer-pill:hover {
+      border-color: rgba(255, 229, 166, .58);
+      background: rgba(255, 255, 255, .10);
+      transform: translateY(-2px);
+    }
+
+    .hero-actions {
+      gap: 1rem;
+      margin-top: 2.15rem;
+    }
+
+    .hero-actions .btn,
+    .quick-actions .btn,
+    .action-stack .btn,
+    .mobile-cta-bar .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .15rem;
+    }
+
+    .btn {
+      transition:
+        transform .22s var(--ease-ui),
+        box-shadow .22s var(--ease-ui),
+        border-color .22s var(--ease-ui),
+        background-color .22s var(--ease-ui);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background-image: linear-gradient(180deg, #ffe7a9 0%, #f2bd5e 48%, #d89231 100%);
+      border-color: rgba(255, 226, 163, .92);
+      box-shadow:
+        0 18px 34px rgba(242, 189, 94, .28),
+        inset 0 1px 0 rgba(255, 255, 255, .58);
+    }
+
+    .btn-gold:hover {
+      box-shadow:
+        0 22px 44px rgba(242, 189, 94, .34),
+        inset 0 1px 0 rgba(255, 255, 255, .66);
+    }
+
+    .btn-whatsapp {
+      background-image: linear-gradient(180deg, #29c36c 0%, #1f9d55 100%);
+      border-color: rgba(83, 224, 145, .62);
+      box-shadow:
+        0 18px 34px rgba(31, 157, 85, .30),
+        inset 0 1px 0 rgba(255, 255, 255, .22);
+    }
+
+    .proof-item {
+      position: relative;
+      overflow: hidden;
+      min-height: 104px;
+      padding: 1.1rem;
+      border-color: rgba(255, 224, 154, .24);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .075), rgba(255, 221, 144, .04));
+      box-shadow:
+        inset 0 0 28px rgba(246, 201, 106, .04),
+        0 14px 34px rgba(0, 0, 0, .16);
+    }
+
+    .proof-item::before,
+    .feature-card::before,
+    .info-card::before,
+    .step-card::before,
+    .composer-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 229, 166, .42), transparent);
+      pointer-events: none;
+    }
+
+    .hero-panel {
+      padding: clamp(1rem, 2.4vw, 1.55rem);
+      border-color: rgba(255, 229, 166, .62);
+      box-shadow:
+        0 34px 95px rgba(0, 0, 0, .60),
+        0 0 0 1px rgba(255, 255, 255, .04),
+        inset 0 0 0 1px rgba(255, 247, 214, .06);
+    }
+
+    .poster-mark {
+      filter:
+        drop-shadow(0 10px 0 rgba(38, 16, 2, .68)) drop-shadow(0 18px 24px rgba(0, 0, 0, .66));
+    }
+
+    .date-card {
+      border-color: rgba(115, 67, 13, .88);
+      background:
+        radial-gradient(circle at 50% 0, rgba(255, 255, 255, .55), transparent 34%),
+        linear-gradient(135deg, #fff6d4 0%, #d7a25a 50%, #fff0c2 100%);
+      box-shadow:
+        0 20px 46px rgba(0, 0, 0, .36),
+        inset 0 0 0 1px rgba(255, 252, 229, .62);
+    }
+
+    .mini-detail {
+      min-height: 88px;
+      border-color: rgba(255, 224, 154, .28);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .34), rgba(255, 255, 255, .045));
+    }
+
+    .section-block {
+      padding: clamp(2.8rem, 6.2vw, 6.2rem) 0;
+    }
+
+    .section-block+.section-block {
+      padding-top: clamp(1.2rem, 4vw, 3rem);
+    }
+
+    .section-heading {
+      max-width: 820px;
+      margin-bottom: clamp(1.5rem, 3.4vw, 2.6rem);
+    }
+
+    .section-title {
+      letter-spacing: .045em;
+    }
+
+    .section-copy {
+      max-width: 780px;
+      margin-inline: auto;
+      color: rgba(214, 189, 134, .94);
+    }
+
+    .glass-card {
+      border-color: rgba(255, 229, 166, .31);
+      background:
+        linear-gradient(180deg, rgba(13, 14, 27, .82), rgba(31, 14, 7, .70)),
+        radial-gradient(circle at 50% 0, rgba(255, 224, 154, .10), transparent 38%);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, .34),
+        inset 0 1px 0 rgba(255, 255, 255, .06),
+        inset 0 0 46px rgba(246, 201, 106, .035);
+    }
+
+    .feature-card,
+    .info-card,
+    .step-card,
+    .benefit-card,
+    .composer-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      border-color: rgba(255, 224, 154, .24);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .078), rgba(255, 221, 144, .038));
+      box-shadow:
+        0 16px 36px rgba(0, 0, 0, .18),
+        inset 0 0 26px rgba(246, 201, 106, .028);
+    }
+
+    .feature-card:hover,
+    .info-card:hover,
+    .step-card:hover,
+    .composer-card:hover {
+      border-color: rgba(255, 229, 166, .52);
+      box-shadow:
+        0 22px 48px rgba(0, 0, 0, .25),
+        inset 0 0 30px rgba(246, 201, 106, .045);
+    }
+
+    .feature-card__icon,
+    .info-card__icon,
+    .step-card__number {
+      background:
+        radial-gradient(circle at 35% 18%, #fff8d5, transparent 32%),
+        linear-gradient(180deg, #ffe6a3, #bd751e);
+    }
+
+    .experience-band {
+      border-radius: var(--radius-xl);
+      padding: clamp(1.55rem, 3.3vw, 2.35rem);
+    }
+
+    .composer-card {
+      min-height: 180px;
+    }
+
+    .info-card {
+      padding: clamp(1.12rem, 2.2vw, 1.48rem);
+    }
+
+    .info-card--featured {
+      border-color: rgba(255, 229, 166, .43);
+      background:
+        linear-gradient(135deg, rgba(246, 201, 106, .16), rgba(255, 255, 255, .06));
+    }
+
+    .countdown {
+      gap: .85rem;
+    }
+
+    .countdown__item {
+      border-color: rgba(255, 224, 154, .30);
+      background:
+        radial-gradient(circle at 50% 0, rgba(255, 224, 154, .12), transparent 56%),
+        rgba(255, 255, 255, .064);
+      box-shadow: inset 0 0 18px rgba(246, 201, 106, .025);
+    }
+
+    .quick-card {
+      padding: clamp(1.45rem, 3.4vw, 2.35rem);
+    }
+
+    .quick-actions {
+      gap: .95rem;
+    }
+
+    /* .support-logo {
+      min-height: 124px;
+      border-color: rgba(255, 224, 154, .25);
+      background:
+        radial-gradient(circle at 50% 0, rgba(255, 224, 154, .13), transparent 52%),
+        linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .035));
+    } */
+
+    .footer-note {
+      max-width: var(--content);
+      border-top-color: rgba(255, 224, 154, .26);
+    }
+
+    .poster-contact-line a {
+      padding: .42rem .72rem;
+      border: 1px solid rgba(255, 224, 154, .16);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .floating-whatsapp {
+      right: clamp(18px, 2.5vw, 28px);
+      bottom: clamp(18px, 2.5vw, 28px);
+      width: 66px;
+      height: 66px;
+      box-shadow:
+        0 20px 46px rgba(0, 0, 0, .48),
+        0 0 0 8px rgba(31, 157, 85, .12),
+        0 0 34px rgba(31, 157, 85, .25);
+    }
+
+    .modal-content {
+      border-color: rgba(255, 229, 166, .43);
+      background:
+        radial-gradient(circle at 50% 0, rgba(255, 214, 120, .16), transparent 31%),
+        linear-gradient(180deg, rgba(12, 13, 25, .99), rgba(36, 16, 7, .99));
+    }
+
+    .form-control,
+    .form-select {
+      min-height: 52px;
+      border-color: rgba(255, 224, 154, .28);
+      background-color: rgba(255, 255, 255, .085);
+    }
+
+    textarea.form-control {
+      min-height: 104px;
+    }
+
+    .ticket-input-card,
+    .message-box {
+      border-color: rgba(255, 224, 154, .30);
+    }
+
+    @media (max-width: 1199.98px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        gap: clamp(2rem, 5vw, 3rem);
+      }
+
+      .hero-copy {
+        max-width: 860px;
+        text-align: center;
+        margin-inline: auto;
+      }
+
+      .hero-lead,
+      .composer-strip,
+      .hero-actions {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .composer-strip,
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .eyebrow {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      :root {
+        --content: min(100% - 28px, 1180px);
+      }
+
+      .topbar {
+        margin-top: 12px;
+        margin-bottom: -78px;
+      }
+
+      .hero {
+        padding-top: 6.9rem;
+      }
+
+      .proof-item {
+        min-height: 110px;
+      }
+
+      .section-block {
+        padding: 3rem 0;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      :root {
+        --content: min(100% - 20px, 1180px);
+      }
+
+      .topbar {
+        margin-top: 9px;
+        border-radius: 22px;
+      }
+
+      .topbar__inner {
+        min-height: 60px;
+        gap: .65rem;
+      }
+
+      .brand-lockup {
+        gap: .55rem;
+      }
+
+      .brand-lockup__mark {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+      }
+
+      .nav-actions .btn-gold {
+        min-height: 42px;
+      }
+
+      .hero {
+        padding-top: 6.35rem;
+        padding-bottom: 2.7rem;
+      }
+
+      .eyebrow {
+        width: 100%;
+        justify-content: center;
+        gap: .55rem;
+        font-size: .74rem;
+        letter-spacing: .13em;
+      }
+
+      .eyebrow::after {
+        display: none;
+      }
+
+      .hero-title {
+        max-width: 100%;
+        font-size: clamp(2.68rem, 14.8vw, 4.8rem);
+        line-height: .90;
+      }
+
+      .hero-lead {
+        margin-top: 1.25rem;
+        font-size: 1rem;
+        line-height: 1.66;
+      }
+
+      .composer-strip {
+        gap: .58rem;
+        margin-top: 1.25rem;
+      }
+
+      .composer-pill {
+        min-height: 38px;
+        padding: .46rem .55rem;
+      }
+
+      .hero-actions {
+        margin-top: 1.65rem;
+      }
+
+      .proof-item {
+        min-height: auto;
+        padding: .95rem;
+      }
+
+      .poster-mark {
+        font-size: clamp(5.2rem, 25vw, 6.6rem);
+      }
+
+      .date-card__day {
+        font-size: clamp(2rem, 10vw, 2.9rem);
+      }
+
+      .feature-card,
+      .info-card,
+      .step-card,
+      .composer-card {
+        border-radius: 20px;
+      }
+
+      .countdown {
+        gap: .65rem;
+      }
+
+      .mobile-cta-bar {
+        grid-template-columns: 1fr 1fr;
+        border-color: rgba(255, 229, 166, .30);
+        background:
+          linear-gradient(180deg, rgba(8, 9, 19, .90), rgba(4, 5, 12, .82));
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      :root {
+        --content: min(100% - 16px, 1180px);
+      }
+
+      .brand-lockup__name {
+        max-width: 145px;
+        font-size: .76rem;
+      }
+
+      .hero {
+        padding-top: 6.1rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.45rem, 14.6vw, 4.05rem);
+        letter-spacing: .012em;
+      }
+
+      .hero-lead {
+        font-size: .96rem;
+      }
+
+      .composer-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .composer-pill {
+        font-size: .68rem;
+        letter-spacing: .025em;
+      }
+
+      .hero-panel {
+        padding: .65rem;
+      }
+
+      .poster-detail-grid {
+        gap: .6rem;
+      }
+
+      .mini-detail {
+        min-height: auto;
+        padding: .82rem;
+      }
+
+      .section-block {
+        padding: 2.45rem 0;
+      }
+
+      .section-title.display-6,
+      .section-title.h1,
+      .section-title.display-5 {
+        font-size: clamp(1.55rem, 9vw, 2.25rem);
+      }
+
+      .quick-card,
+      .experience-band {
+        padding: 1.1rem;
+      }
+
+      .countdown__item {
+        padding: .75rem .45rem;
+      }
+
+      .modal-dialog {
+        margin: .75rem;
+      }
+
+      .modal-content {
+        border-radius: 22px;
+      }
+    }
+
+
+
+
+    .composer-strip--banner {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .75rem;
+      max-width: 760px;
+      margin: 0 0 1rem;
+      padding: 0 0 1rem;
+    }
+
+    .composer-strip--banner::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 229, 166, .62), transparent);
+      opacity: .85;
+    }
+
+    .composer-strip--banner .composer-pill {
+      min-height: 36px;
+      padding: .46rem .58rem;
+      border-color: rgba(255, 229, 166, .38);
+      background: rgba(255, 255, 255, .055);
+      font-family: var(--font-title);
+      font-size: clamp(.66rem, .92vw, .80rem);
+      letter-spacing: .055em;
+      text-align: center;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, .72);
+    }
+
+    .hero-title--banner {
+      position: relative;
+      width: max-content;
+      max-width: 100%;
+      margin-top: .15rem;
+      font-size: clamp(5.2rem, 11.3vw, 9.7rem);
+      line-height: .78;
+      letter-spacing: .048em;
+      transform: translateX(-.035em);
+      -webkit-text-stroke: 1px rgba(255, 239, 185, .38);
+      filter:
+        drop-shadow(0 9px 0 rgba(42, 16, 0, .82)) drop-shadow(0 24px 34px rgba(0, 0, 0, .66)) drop-shadow(0 0 28px rgba(246, 201, 106, .16));
+    }
+
+    .hero-title--banner span {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .hero-title--banner::after {
+      content: "";
+      position: absolute;
+      right: 3%;
+      bottom: -.42rem;
+      left: 3%;
+      height: clamp(10px, 1.8vw, 18px);
+      border-bottom: 2px solid rgba(255, 229, 166, .58);
+      border-radius: 0 0 999px 999px;
+      box-shadow: 0 10px 24px rgba(246, 201, 106, .16);
+      pointer-events: none;
+    }
+
+    .hero-tagline {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      max-width: 690px;
+      margin: 1.35rem 0 0;
+      color: var(--gold-3);
+      font-family: var(--font-title);
+      font-size: clamp(.94rem, 1.65vw, 1.26rem);
+      font-weight: 900;
+      letter-spacing: .16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, .70), 0 0 18px rgba(246, 201, 106, .20);
+    }
+
+    .hero-tagline::before,
+    .hero-tagline::after {
+      content: "";
+      flex: 1 1 52px;
+      height: 1px;
+      min-width: 34px;
+      background: linear-gradient(90deg, transparent, rgba(255, 229, 166, .72));
+    }
+
+    .hero-tagline::after {
+      background: linear-gradient(90deg, rgba(255, 229, 166, .72), transparent);
+    }
+
+    .hero-lead {
+      margin-top: 1.1rem;
+    }
+
+    .hero-panel {
+      transform: translateY(.2rem);
+    }
+
+    .date-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .date-card::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(96, 55, 10, .24);
+      border-radius: 14px;
+      pointer-events: none;
+    }
+
+    .section-block#experiencia {
+      padding-top: clamp(3rem, 7vw, 6.8rem);
+    }
+
+    @media (min-width: 1200px) {
+      .hero-copy {
+        padding-top: .45rem;
+      }
+    }
+
+    @media (max-width: 1199.98px) {
+      .composer-strip--banner {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .hero-title--banner {
+        width: auto;
+        margin-right: auto;
+        margin-left: auto;
+        transform: none;
+      }
+
+      .hero-tagline {
+        justify-content: center;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .composer-strip--banner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 100%;
+        gap: .55rem;
+      }
+
+      .hero-title--banner {
+        font-size: clamp(4.15rem, 22vw, 6.7rem);
+        line-height: .84;
+        letter-spacing: .03em;
+      }
+
+      .hero-tagline {
+        display: block;
+        max-width: 96%;
+        margin-top: 1.15rem;
+        font-size: clamp(.82rem, 3.4vw, 1rem);
+        letter-spacing: .105em;
+        text-align: center;
+      }
+
+      .hero-tagline::before,
+      .hero-tagline::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-title--banner {
+        font-size: clamp(3.55rem, 20vw, 4.95rem);
+        letter-spacing: .015em;
+      }
+
+      .composer-strip--banner .composer-pill {
+        min-height: 34px;
+        padding-inline: .42rem;
+        font-size: .62rem;
+      }
+    }
+
+
+
+
+    @media (min-width: 1200px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 720px) minmax(360px, 520px);
+        justify-content: center;
+        align-items: center;
+        gap: clamp(2.4rem, 4.6vw, 5rem);
+      }
+
+      .hero-copy {
+        width: 100%;
+        max-width: 720px;
+      }
+    }
+
+    .composer-strip--banner {
+      width: min(100%, 650px);
+      max-width: 650px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: stretch;
+      gap: clamp(.5rem, .8vw, .72rem);
+      margin-bottom: clamp(.85rem, 1.2vw, 1.05rem);
+      padding-bottom: clamp(.75rem, 1vw, .95rem);
+    }
+
+    .composer-strip--banner>li {
+      min-width: 0;
+    }
+
+    .composer-strip--banner .composer-pill {
+      width: 100%;
+      min-height: 38px;
+      padding: .48rem .42rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+      font-size: clamp(.54rem, .66vw, .70rem);
+      line-height: 1;
+      letter-spacing: .025em;
+    }
+
+    .hero-title--banner {
+      max-width: 650px;
+      margin-top: .05rem;
+      font-size: clamp(4.4rem, 7.2vw, 7.26rem);
+      line-height: .84;
+      letter-spacing: .022em;
+      transform: none;
+    }
+
+    .hero-title--banner span {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    .hero-title--banner::after {
+      right: 1.25%;
+      left: 1.25%;
+      bottom: -.34rem;
+    }
+
+    .hero-tagline {
+      width: min(100%, 650px);
+      max-width: 650px;
+      gap: .68rem;
+      margin-top: clamp(1.05rem, 1.3vw, 1.25rem);
+      font-size: clamp(.78rem, .93vw, .98rem);
+      line-height: 1.22;
+      letter-spacing: .085em;
+      white-space: nowrap;
+    }
+
+    .hero-tagline::before,
+    .hero-tagline::after {
+      flex: 1 1 44px;
+      min-width: 36px;
+    }
+
+    .hero-lead {
+      width: min(100%, 650px);
+      max-width: 650px;
+    }
+
+    .hero-actions {
+      width: min(100%, 650px);
+      max-width: 650px;
+    }
+
+    .hero-panel {
+      width: min(100%, 520px);
+      max-width: 520px;
+      justify-self: center;
+    }
+
+    .poster-mark--osgc {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin: .2rem auto .1rem;
+      overflow: visible;
+      font-family: var(--font-title);
+      font-size: clamp(3.05rem, 4.8vw, 4.8rem);
+      font-weight: 900;
+      line-height: .92;
+      letter-spacing: .025em;
+      text-align: center;
+      white-space: nowrap;
+      word-break: keep-all;
+      -webkit-text-stroke: 1px rgba(255, 239, 185, .32);
+    }
+
+    .poster-content>div:first-child {
+      min-width: 0;
+      overflow: visible;
+    }
+
+    .poster-content .eyebrow.text-center {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      max-width: 100%;
+      padding-inline: .45rem;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: clamp(.66rem, .92vw, .82rem);
+      letter-spacing: .14em;
+    }
+
+    .poster-content .eyebrow.text-center::after {
+      max-width: 84px;
+    }
+
+    @media (max-width: 1399.98px) and (min-width: 1200px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 660px) minmax(340px, 480px);
+        gap: clamp(2rem, 3.8vw, 3.6rem);
+      }
+
+      .composer-strip--banner,
+      .hero-title--banner,
+      .hero-tagline,
+      .hero-lead,
+      .hero-actions {
+        width: min(100%, 610px);
+        max-width: 610px;
+      }
+
+      .hero-title--banner {
+        font-size: clamp(4.1rem, 6.9vw, 6.85rem);
+      }
+
+      .composer-strip--banner .composer-pill {
+        font-size: clamp(.50rem, .62vw, .64rem);
+        letter-spacing: .015em;
+      }
+    }
+
+    @media (max-width: 1199.98px) {
+
+      .composer-strip--banner,
+      .hero-title--banner,
+      .hero-tagline,
+      .hero-lead,
+      .hero-actions {
+        width: min(100%, 680px);
+        max-width: 680px;
+      }
+
+      .composer-strip--banner .composer-pill {
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: clamp(.58rem, 1.15vw, .74rem);
+      }
+
+      .hero-title--banner {
+        font-size: clamp(4.5rem, 13vw, 7.15rem);
+      }
+
+      .hero-tagline {
+        white-space: nowrap;
+        font-size: clamp(.78rem, 1.65vw, .98rem);
+        letter-spacing: .075em;
+      }
+
+      .poster-mark--osgc {
+        font-size: clamp(3.1rem, 8vw, 4.6rem);
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .composer-strip--banner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(100%, 520px);
+        max-width: 520px;
+        gap: .58rem;
+      }
+
+      .composer-strip--banner .composer-pill {
+        font-size: clamp(.60rem, 2.35vw, .74rem);
+        letter-spacing: .015em;
+      }
+
+      .hero-title--banner {
+        width: min(100%, 520px);
+        max-width: 520px;
+        font-size: clamp(3.7rem, 17.5vw, 5.7rem);
+        letter-spacing: .012em;
+      }
+
+      .hero-tagline {
+        width: min(100%, 520px);
+        max-width: 520px;
+        white-space: normal;
+        text-wrap: balance;
+        font-size: clamp(.80rem, 3.1vw, .95rem);
+        letter-spacing: .075em;
+      }
+
+      .hero-lead,
+      .hero-actions {
+        width: min(100%, 520px);
+        max-width: 520px;
+      }
+
+      .poster-mark--osgc {
+        font-size: clamp(2.75rem, 13vw, 4rem);
+        letter-spacing: .018em;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .composer-strip--banner .composer-pill {
+        min-height: 34px;
+        padding-inline: .34rem;
+        font-size: clamp(.50rem, 2.45vw, .60rem);
+      }
+
+      .hero-title--banner {
+        font-size: clamp(3.1rem, 16.4vw, 4rem);
+      }
+
+      .poster-mark--osgc {
+        font-size: clamp(2.4rem, 12vw, 3.15rem);
+      }
+    }
+
+
+
+
+    .composer-strip--banner .composer-pill[data-composer-target] {
+      cursor: default;
+      outline: none;
+    }
+
+    .composer-strip--banner .composer-pill[data-composer-target]:focus-visible {
+      box-shadow:
+        0 0 0 .16rem rgba(255, 229, 166, .22),
+        inset 0 0 18px rgba(246, 201, 106, .08),
+        0 10px 24px rgba(0, 0, 0, .18);
+    }
+
+    .composer-strip--banner .composer-pill.is-active,
+    .composer-strip--banner .composer-pill[data-composer-target]:is(:hover, :focus-visible) {
+      border-color: rgba(255, 229, 166, .72);
+      background:
+        linear-gradient(180deg, rgba(255, 229, 166, .18), rgba(255, 255, 255, .075));
+    }
+
+    .hero-composer-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(.62rem, 1vw, .88rem);
+      width: min(100%, 650px);
+      max-width: 650px;
+      margin: clamp(1.05rem, 2vw, 1.45rem) 0 0;
+      padding: 0;
+    }
+
+    .hero-composer-card {
+      min-width: 0;
+      text-align: center;
+    }
+
+    .hero-composer-media {
+      position: relative;
+      display: block;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(255, 224, 154, .24);
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 50% 0, rgba(255, 229, 166, .14), transparent 58%),
+        linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(4, 5, 12, .72));
+      box-shadow:
+        0 16px 34px rgba(0, 0, 0, .22),
+        inset 0 0 24px rgba(246, 201, 106, .035);
+      opacity: .66;
+      transform: translateY(0) scale(.985);
+      transition:
+        opacity .24s var(--ease-ui),
+        transform .24s var(--ease-ui),
+        border-color .24s var(--ease-ui),
+        box-shadow .24s var(--ease-ui),
+        filter .24s var(--ease-ui);
+    }
+
+    .hero-composer-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .10), transparent 34%),
+        radial-gradient(circle at 50% 100%, rgba(217, 154, 54, .16), transparent 54%);
+      opacity: .72;
+      transition: opacity .24s var(--ease-ui);
+    }
+
+    .hero-composer-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(.32) saturate(.82) contrast(1.04) brightness(.86);
+      transform: scale(1.045);
+      transition:
+        filter .24s var(--ease-ui),
+        transform .24s var(--ease-ui);
+    }
+
+    .hero-composer-name {
+      display: block;
+      margin-top: .48rem;
+      overflow: hidden;
+      color: rgba(255, 240, 184, .76);
+      font-family: var(--font-title);
+      font-size: clamp(.52rem, .72vw, .68rem);
+      font-weight: 900;
+      letter-spacing: .028em;
+      line-height: 1.05;
+      text-overflow: clip;
+      text-transform: uppercase;
+      white-space: nowrap;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, .70);
+      transition: color .24s var(--ease-ui), transform .24s var(--ease-ui);
+    }
+
+    .hero-composer-card:is(.is-active, :hover) .hero-composer-media,
+    .hero-composer-card:focus-within .hero-composer-media,
+    .hero-copy:has([data-composer-target="ennio-morricone"]:is(:hover, :focus-visible)) [data-composer-card="ennio-morricone"] .hero-composer-media,
+    .hero-copy:has([data-composer-target="hans-zimmer"]:is(:hover, :focus-visible)) [data-composer-card="hans-zimmer"] .hero-composer-media,
+    .hero-copy:has([data-composer-target="john-williams"]:is(:hover, :focus-visible)) [data-composer-card="john-williams"] .hero-composer-media,
+    .hero-copy:has([data-composer-target="alan-silvestri"]:is(:hover, :focus-visible)) [data-composer-card="alan-silvestri"] .hero-composer-media {
+      border-color: rgba(255, 229, 166, .78);
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, .34),
+        0 0 0 1px rgba(255, 229, 166, .14),
+        0 0 34px rgba(246, 201, 106, .17),
+        inset 0 0 30px rgba(246, 201, 106, .06);
+      opacity: 1;
+      transform: translateY(-5px) scale(1.025);
+    }
+
+    .hero-composer-card:is(.is-active, :hover) .hero-composer-media img,
+    .hero-composer-card:focus-within .hero-composer-media img,
+    .hero-copy:has([data-composer-target="ennio-morricone"]:is(:hover, :focus-visible)) [data-composer-card="ennio-morricone"] .hero-composer-media img,
+    .hero-copy:has([data-composer-target="hans-zimmer"]:is(:hover, :focus-visible)) [data-composer-card="hans-zimmer"] .hero-composer-media img,
+    .hero-copy:has([data-composer-target="john-williams"]:is(:hover, :focus-visible)) [data-composer-card="john-williams"] .hero-composer-media img,
+    .hero-copy:has([data-composer-target="alan-silvestri"]:is(:hover, :focus-visible)) [data-composer-card="alan-silvestri"] .hero-composer-media img {
+      filter: grayscale(0) saturate(1.06) contrast(1.08) brightness(1);
+      transform: scale(1.09);
+    }
+
+    .hero-composer-card:is(.is-active, :hover) .hero-composer-media::after,
+    .hero-composer-card:focus-within .hero-composer-media::after,
+    .hero-copy:has([data-composer-target="ennio-morricone"]:is(:hover, :focus-visible)) [data-composer-card="ennio-morricone"] .hero-composer-media::after,
+    .hero-copy:has([data-composer-target="hans-zimmer"]:is(:hover, :focus-visible)) [data-composer-card="hans-zimmer"] .hero-composer-media::after,
+    .hero-copy:has([data-composer-target="john-williams"]:is(:hover, :focus-visible)) [data-composer-card="john-williams"] .hero-composer-media::after,
+    .hero-copy:has([data-composer-target="alan-silvestri"]:is(:hover, :focus-visible)) [data-composer-card="alan-silvestri"] .hero-composer-media::after {
+      opacity: .38;
+    }
+
+    .hero-composer-card:is(.is-active, :hover) .hero-composer-name,
+    .hero-composer-card:focus-within .hero-composer-name,
+    .hero-copy:has([data-composer-target="ennio-morricone"]:is(:hover, :focus-visible)) [data-composer-card="ennio-morricone"] .hero-composer-name,
+    .hero-copy:has([data-composer-target="hans-zimmer"]:is(:hover, :focus-visible)) [data-composer-card="hans-zimmer"] .hero-composer-name,
+    .hero-copy:has([data-composer-target="john-williams"]:is(:hover, :focus-visible)) [data-composer-card="john-williams"] .hero-composer-name,
+    .hero-copy:has([data-composer-target="alan-silvestri"]:is(:hover, :focus-visible)) [data-composer-card="alan-silvestri"] .hero-composer-name {
+      color: var(--gold-3);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 1199.98px) {
+      .hero-composer-gallery {
+        width: min(100%, 680px);
+        max-width: 680px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .hero-composer-gallery {
+        width: min(100%, 520px);
+        max-width: 520px;
+        gap: .58rem;
+      }
+
+      .hero-composer-media {
+        border-radius: 16px;
+      }
+
+      .hero-composer-name {
+        font-size: clamp(.54rem, 1.95vw, .64rem);
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .hero-composer-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(100%, 360px);
+        max-width: 360px;
+        gap: .72rem;
+      }
+
+      .hero-composer-name {
+        font-size: clamp(.58rem, 2.8vw, .68rem);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero-composer-gallery {
+        gap: .55rem;
+      }
+
+      .hero-composer-name {
+        font-size: .55rem;
+        letter-spacing: .01em;
+      }
+    }
+
+
+
+
+    .poster-content {
+      height: 100%;
+      justify-content: flex-start;
+    }
+
+    .poster-countdown {
+      margin-top: auto;
+      padding: clamp(.9rem, 1.6vw, 1.12rem);
+      border: 1px solid rgba(255, 224, 154, .24);
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 50% 0, rgba(255, 224, 154, .13), transparent 58%),
+        linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(0, 0, 0, .18));
+      box-shadow:
+        inset 0 0 28px rgba(246, 201, 106, .04),
+        0 14px 30px rgba(0, 0, 0, .18);
+    }
+
+    .poster-countdown__head {
+      margin-bottom: .72rem;
+      text-align: center;
+    }
+
+    .poster-countdown__eyebrow {
+      color: var(--gold-2);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .poster-countdown__title {
+      margin: .22rem 0 0;
+      color: var(--gold-3);
+      font-family: var(--font-title);
+      font-size: clamp(.86rem, 1.16vw, 1.08rem);
+      font-weight: 900;
+      letter-spacing: .055em;
+      line-height: 1.2;
+      text-transform: uppercase;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, .70), 0 0 18px rgba(246, 201, 106, .16);
+    }
+
+    .countdown--hero {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .5rem;
+    }
+
+    .countdown--hero .countdown__item {
+      min-width: 0;
+      padding: .72rem .28rem;
+      border-color: rgba(255, 224, 154, .26);
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 50% 0, rgba(255, 224, 154, .14), transparent 58%),
+        rgba(255, 255, 255, .055);
+      box-shadow: inset 0 0 18px rgba(246, 201, 106, .035);
+    }
+
+    .countdown--hero .countdown__number {
+      font-size: clamp(1.08rem, 2.15vw, 1.72rem);
+    }
+
+    .countdown--hero .countdown__label {
+      display: block;
+      margin-top: .22rem;
+      font-size: .56rem;
+      letter-spacing: .075em;
+    }
+
+    .poster-countdown__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .65rem;
+      margin-top: .78rem;
+      padding-top: .75rem;
+      border-top: 1px solid rgba(255, 224, 154, .16);
+    }
+
+    .poster-countdown__footer span {
+      min-width: 0;
+      color: rgba(214, 189, 134, .96);
+      font-size: clamp(.68rem, .82vw, .76rem);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .poster-countdown__footer .btn {
+      flex: 0 0 auto;
+      min-height: 36px;
+      padding: .42rem .82rem;
+      font-size: .72rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1199.98px) {
+      .poster-content {
+        height: auto;
+      }
+
+      .poster-countdown {
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .poster-countdown {
+        padding: .82rem;
+      }
+
+      .countdown--hero {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .52rem;
+      }
+
+      .poster-countdown__footer {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+
+      .poster-countdown__footer .btn {
+        width: 100%;
+      }
+    }
+
+    .primary-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .16rem;
+      min-width: 0;
+      margin-inline: auto;
+      padding-inline: .5rem;
+    }
+
+    .primary-nav__link,
+    .event-menu__link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      border-radius: 999px;
+      color: rgba(255, 243, 210, .82);
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .045em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: color .22s var(--ease-ui), background .22s var(--ease-ui), border-color .22s var(--ease-ui), transform .22s var(--ease-ui);
+    }
+
+    .primary-nav__link {
+      padding: .45rem .62rem;
+      border: 1px solid transparent;
+    }
+
+    .primary-nav__link:hover,
+    .primary-nav__link:focus-visible,
+    .event-menu__link:hover,
+    .event-menu__link:focus-visible {
+      color: var(--gold-3);
+      border-color: rgba(255, 224, 154, .24);
+      background: rgba(255, 255, 255, .06);
+      transform: translateY(-1px);
+      outline: 0;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      gap: .35rem;
+      min-height: 44px;
+    }
+
+    .event-menu {
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 50% 0, rgba(246, 201, 106, .14), transparent 32%),
+        linear-gradient(180deg, rgba(9, 10, 22, .98), rgba(31, 14, 7, .98));
+      border-left: 1px solid rgba(255, 224, 154, .28);
+      box-shadow: -24px 0 60px rgba(0, 0, 0, .42);
+    }
+
+    .event-menu .offcanvas-header {
+      border-bottom: 1px solid rgba(255, 224, 154, .16);
+    }
+
+    .event-menu__nav {
+      display: grid;
+      gap: .65rem;
+    }
+
+    .event-menu__link {
+      justify-content: flex-start;
+      min-height: 48px;
+      padding: .75rem .95rem;
+      border: 1px solid rgba(255, 224, 154, .16);
+      background: rgba(255, 255, 255, .045);
+      font-size: .86rem;
+    }
+
+    .event-menu__actions {
+      display: grid;
+      gap: .75rem;
+      margin-top: 1.1rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid rgba(255, 224, 154, .16);
+    }
+
+    .social-card {
+      position: relative;
+      display: flex;
+      height: 100%;
+      min-height: 178px;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: clamp(1.1rem, 2.3vw, 1.45rem);
+      border: 1px solid rgba(255, 224, 154, .24);
+      border-radius: var(--radius-lg);
+      color: inherit;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .078), rgba(255, 221, 144, .038));
+      box-shadow:
+        0 16px 36px rgba(0, 0, 0, .18),
+        inset 0 0 26px rgba(246, 201, 106, .028);
+      text-decoration: none;
+      overflow: hidden;
+      transition: transform .24s var(--ease-ui), border-color .24s var(--ease-ui), box-shadow .24s var(--ease-ui), background .24s var(--ease-ui);
+    }
+
+    .social-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 229, 166, .42), transparent);
+      pointer-events: none;
+    }
+
+    .social-card:hover,
+    .social-card:focus-visible {
+      color: inherit;
+      border-color: rgba(255, 229, 166, .52);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .095), rgba(255, 221, 144, .05));
+      box-shadow:
+        0 22px 48px rgba(0, 0, 0, .25),
+        inset 0 0 30px rgba(246, 201, 106, .045);
+      transform: translateY(-5px);
+      outline: 0;
+    }
+
+    .social-card__icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      border-radius: 8px;
+      color: #1b1106;
+      background:
+        radial-gradient(circle at 35% 18%, #fff8d5, transparent 32%),
+        linear-gradient(180deg, #ffe6a3, #bd751e);
+      font-size: 1.35rem;
+    }
+
+    .social-card__title {
+      display: block;
+      margin: .95rem 0 .45rem;
+      color: var(--cream);
+      font-size: 1.12rem;
+      font-weight: 900;
+      line-height: 1.18;
+    }
+
+    .social-card__text {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .social-card__action {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      color: var(--gold-3);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1320px) {
+      .primary-nav__link {
+        padding-inline: .5rem;
+        font-size: .69rem;
+      }
+    }
+
+    @media (max-width: 1199.98px) {
+      .primary-nav {
+        display: none;
+      }
+
+      .nav-actions .menu-toggle {
+        display: inline-flex !important;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .nav-actions .menu-toggle {
+        min-height: 42px;
+        padding-inline: .8rem !important;
+      }
+
+      .event-menu {
+        width: min(88vw, 380px) !important;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .menu-toggle__text {
+        display: none;
+      }
+
+      .social-card {
+        min-height: auto;
+        border-radius: 20px;
+      }
+    }
+
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .section-wrap,
+    .topbar,
+    .footer-note {
+      width: min(1200px, calc(100% - clamp(16px, 4vw, 56px))) !important;
+      max-width: 1200px;
+    }
+
+    .page-shell,
+    .hero,
+    .section-block,
+    .section-wrap,
+    .hero-grid,
+    .hero-copy,
+    .hero-panel,
+    .poster-content,
+    .poster-info,
+    .glass-card,
+    .quick-card,
+    .modal-content {
+      min-width: 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 520px);
+      align-items: center;
+      gap: clamp(2rem, 4vw, 4.4rem);
+    }
+
+    .hero-copy,
+    .hero-panel {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title--banner,
+    .hero-tagline,
+    .hero-lead,
+    .composer-strip--banner,
+    .hero-actions,
+    .hero-composer-gallery {
+      max-width: 100%;
+    }
+
+    .hero-title--banner {
+      overflow-wrap: normal;
+      word-break: keep-all;
+    }
+
+    .poster-info>*,
+    .date-card,
+    .poster-countdown,
+    .countdown,
+    .poster-detail-grid,
+    .mini-detail,
+    .social-card,
+    .support-logo {
+      min-width: 0;
+    }
+
+    .date-card__day,
+    .date-card__meta,
+    .mini-detail strong,
+    .mini-detail span,
+    .poster-countdown__title,
+    .poster-countdown__eyebrow {
+      overflow-wrap: anywhere;
+    }
+
+    .primary-nav {
+      flex: 1 1 auto;
+    }
+
+    .nav-actions {
+      flex: 0 0 auto;
+    }
+
+    @media (min-width: 1200px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 720px) minmax(360px, 520px) !important;
+      }
+    }
+
+    @media (max-width: 1199.98px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        align-items: start !important;
+        justify-items: center !important;
+        gap: clamp(1.4rem, 4vw, 2.6rem) !important;
+      }
+
+      .hero-copy {
+        width: min(100%, 860px) !important;
+        max-width: 860px !important;
+        margin-inline: auto !important;
+        text-align: center !important;
+      }
+
+      .composer-strip--banner,
+      .hero-title--banner,
+      .hero-tagline,
+      .hero-lead,
+      .hero-actions,
+      .hero-composer-gallery {
+        width: min(100%, 760px) !important;
+        max-width: 760px !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
+      }
+
+      .composer-strip--banner,
+      .hero-actions {
+        justify-content: center !important;
+      }
+
+      .hero-title--banner {
+        font-size: clamp(4.4rem, 12vw, 6.9rem) !important;
+        line-height: .84 !important;
+        text-align: center !important;
+        transform: none !important;
+      }
+
+      .hero-tagline {
+        justify-content: center !important;
+        white-space: normal !important;
+        text-wrap: balance;
+      }
+
+      .hero-panel {
+        width: min(100%, 720px) !important;
+        max-width: 720px !important;
+        margin-inline: auto !important;
+        justify-self: center !important;
+        transform: none !important;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .topbar {
+        margin-top: 10px !important;
+        margin-bottom: -76px !important;
+      }
+
+      .topbar__inner {
+        gap: .65rem !important;
+      }
+
+      .brand-lockup {
+        flex: 1 1 auto;
+      }
+
+      .brand-lockup__name {
+        max-width: clamp(180px, 42vw, 330px);
+      }
+
+      .hero {
+        padding-top: clamp(6.4rem, 12vw, 7rem) !important;
+      }
+
+      .hero-copy {
+        width: 100% !important;
+      }
+
+      .hero-panel {
+        width: min(100%, 660px) !important;
+      }
+
+      .poster-mark--osgc {
+        font-size: clamp(3rem, 9vw, 4.55rem) !important;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+
+      .section-wrap,
+      .topbar,
+      .footer-note {
+        width: min(100% - 18px, 1200px) !important;
+      }
+
+      .topbar {
+        border-radius: 22px !important;
+      }
+
+      .topbar__inner {
+        min-height: 60px !important;
+        padding: .55rem !important;
+      }
+
+      .brand-lockup__mark {
+        width: 40px !important;
+        height: 40px !important;
+        flex-basis: 40px !important;
+      }
+
+      .brand-lockup__name {
+        max-width: clamp(140px, 38vw, 230px) !important;
+        font-size: .74rem !important;
+      }
+
+      .brand-lockup__sub {
+        display: none !important;
+      }
+
+      .nav-actions {
+        gap: .42rem !important;
+      }
+
+      .nav-actions .btn {
+        min-height: 42px !important;
+      }
+
+      .nav-actions .menu-toggle {
+        padding-inline: .86rem !important;
+      }
+
+      .nav-actions .btn-gold {
+        padding-inline: .92rem !important;
+        font-size: .86rem !important;
+      }
+
+      .hero {
+        padding-top: 6.35rem !important;
+        padding-bottom: 2.75rem !important;
+      }
+
+      .composer-strip--banner {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        width: min(100%, 560px) !important;
+        gap: .58rem !important;
+      }
+
+      .composer-strip--banner .composer-pill {
+        min-width: 0 !important;
+        width: 100% !important;
+        padding-inline: .5rem !important;
+        font-size: clamp(.58rem, 2.4vw, .74rem) !important;
+        white-space: nowrap !important;
+      }
+
+      .hero-title--banner {
+        width: 100% !important;
+        font-size: clamp(3.55rem, 17vw, 5.55rem) !important;
+        line-height: .88 !important;
+        letter-spacing: .012em !important;
+      }
+
+      .hero-tagline {
+        width: min(100%, 560px) !important;
+        max-width: 560px !important;
+        font-size: clamp(.80rem, 3.2vw, .98rem) !important;
+        letter-spacing: .075em !important;
+        line-height: 1.42 !important;
+      }
+
+      .hero-lead {
+        width: min(100%, 560px) !important;
+        font-size: .98rem !important;
+        line-height: 1.62 !important;
+      }
+
+      .hero-actions {
+        width: min(100%, 560px) !important;
+      }
+
+      .hero-composer-gallery {
+        width: min(100%, 560px) !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: .58rem !important;
+      }
+
+      .hero-composer-media {
+        border-radius: 14px !important;
+      }
+
+      .poster-detail-grid {
+        grid-template-columns: 1fr 1fr !important;
+      }
+
+      .poster-countdown__footer {
+        flex-wrap: wrap;
+      }
+
+      .event-menu {
+        width: min(92vw, 390px) !important;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+
+      .section-wrap,
+      .topbar,
+      .footer-note {
+        width: min(100% - 14px, 1200px) !important;
+      }
+
+      .topbar__inner {
+        gap: .45rem !important;
+      }
+
+      .brand-lockup {
+        gap: .48rem !important;
+      }
+
+      .brand-lockup__mark {
+        width: 38px !important;
+        height: 38px !important;
+        flex-basis: 38px !important;
+      }
+
+      .brand-lockup__name {
+        max-width: clamp(108px, 34vw, 160px) !important;
+        font-size: .68rem !important;
+        letter-spacing: .03em !important;
+      }
+
+      .menu-toggle__text,
+      .nav-actions .btn-gold span {
+        display: none !important;
+      }
+
+      .nav-actions .menu-toggle,
+      .nav-actions .btn-gold {
+        width: 42px !important;
+        min-width: 42px !important;
+        padding-inline: 0 !important;
+      }
+
+      .nav-actions .btn-gold i,
+      .nav-actions .menu-toggle i {
+        margin: 0 !important;
+      }
+
+      .hero {
+        padding-top: 6rem !important;
+      }
+
+      .hero-title--banner {
+        font-size: clamp(3.05rem, 16.5vw, 4.2rem) !important;
+      }
+
+      .hero-tagline {
+        max-width: 96% !important;
+      }
+
+      .hero-actions .btn,
+      .action-stack .btn,
+      .quick-actions .btn {
+        width: 100% !important;
+      }
+
+      .hero-composer-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: .65rem !important;
+      }
+
+      .hero-composer-media {
+        max-height: 150px;
+      }
+
+      .poster-detail-grid,
+      .countdown--hero {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .date-card {
+        padding: .95rem .75rem !important;
+      }
+
+      .date-card__day {
+        font-size: clamp(1.85rem, 9vw, 2.65rem) !important;
+      }
+
+      .poster-countdown__footer {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center !important;
+      }
+
+      .poster-countdown__footer .btn {
+        width: 100% !important;
+      }
+
+      .mobile-cta-bar {
+        grid-template-columns: 1fr 1fr !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand-lockup__name {
+        max-width: 96px !important;
+        font-size: .62rem !important;
+      }
+
+      .brand-lockup__mark {
+        width: 36px !important;
+        height: 36px !important;
+        flex-basis: 36px !important;
+      }
+
+      .topbar__inner {
+        padding: .48rem !important;
+      }
+
+      .nav-actions .menu-toggle,
+      .nav-actions .btn-gold {
+        width: 40px !important;
+        min-width: 40px !important;
+      }
+
+      .hero-title--banner {
+        font-size: clamp(2.72rem, 15.7vw, 3.65rem) !important;
+      }
+
+      .composer-strip--banner .composer-pill {
+        font-size: .55rem !important;
+        letter-spacing: .01em !important;
+      }
+
+      .poster-mark--osgc {
+        font-size: clamp(2.2rem, 12vw, 3rem) !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .brand-lockup__name {
+        display: none !important;
+      }
+
+      .hero-title--banner {
+        font-size: clamp(2.45rem, 15vw, 3.18rem) !important;
+      }
+    }
+
+
+    html {
+      width: 100%;
+      max-width: 100%;
+      min-height: 100%;
+      overflow-x: clip;
+      overflow-y: auto;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      width: 100%;
+      max-width: 100%;
+      min-height: 100%;
+      overflow: visible;
+    }
+
+    .page-shell,
+    .hero,
+    .section-block,
+    .section-wrap,
+    .topbar,
+    .footer-note {
+      max-width: 100%;
+      overflow-x: clip !important;
+      overflow-y: visible !important;
+    }
+
+    body.modal-open,
+    body.offcanvas-open {
+      width: 100% !important;
+      padding-right: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .topbar {
+      max-width: 1380px !important;
+    }
+
+    .topbar__inner {
+      display: grid !important;
+      grid-template-columns: minmax(220px, auto) minmax(0, 1fr) auto;
+      align-items: center;
+    }
+
+    .primary-nav {
+      justify-self: center;
+      overflow: clip;
+    }
+
+    .primary-nav__link {
+      padding-inline: clamp(.38rem, .55vw, .7rem) !important;
+      font-size: clamp(.64rem, .62vw, .74rem) !important;
+      letter-spacing: .035em !important;
+    }
+
+    .menu-toggle {
+      display: none !important;
+    }
+
+    .nav-actions .btn-gold {
+      white-space: nowrap;
+    }
+
+    .reservation-panel {
+      width: 100%;
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
+      align-items: center;
+      gap: clamp(1.2rem, 3vw, 2.6rem);
+    }
+
+    .reservation-panel__content,
+    .reservation-panel__actions {
+      min-width: 0;
+    }
+
+    .reservation-panel__actions {
+      width: 100%;
+    }
+
+    #reserva {
+      scroll-margin-top: 110px;
+    }
+
+    @media (max-width: 1399.98px) {
+      .topbar__inner {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .primary-nav {
+        display: none !important;
+      }
+
+      .nav-actions .menu-toggle {
+        display: inline-flex !important;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .topbar__inner {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .reservation-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .topbar__inner {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .nav-actions {
+        display: inline-grid !important;
+        grid-auto-flow: column;
+        grid-auto-columns: 42px;
+      }
+    }
+
+
+    /* Ajuste final do menu: evita corte no hover/focus e evidencia a seção ativa */
+    .topbar,
+    .topbar__inner,
+    .primary-nav,
+    .nav-actions {
+      overflow: visible !important;
+    }
+
+    .topbar {
+      isolation: isolate;
+    }
+
+    .topbar__inner {
+      min-height: 70px !important;
+      padding-top: .5rem !important;
+      padding-bottom: .5rem !important;
+    }
+
+    .primary-nav {
+      position: relative;
+      z-index: 2;
+      gap: clamp(.08rem, .25vw, .34rem) !important;
+      padding: .35rem .5rem !important;
+    }
+
+    .primary-nav__link,
+    .event-menu__link {
+      position: relative;
+      z-index: 1;
+      border: 1px solid transparent;
+      line-height: 1 !important;
+      will-change: transform;
+    }
+
+    .primary-nav__link {
+      min-height: 42px !important;
+      padding: .56rem clamp(.44rem, .68vw, .82rem) !important;
+    }
+
+    .primary-nav__link:hover,
+    .primary-nav__link:focus-visible,
+    .primary-nav__link.is-active,
+    .primary-nav__link[aria-current="page"] {
+      color: var(--gold-3) !important;
+      border-color: rgba(255, 224, 154, .42) !important;
+      background:
+        radial-gradient(circle at 50% 0, rgba(255, 224, 154, .16), transparent 62%),
+        rgba(255, 255, 255, .075) !important;
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, .22),
+        inset 0 0 0 1px rgba(255, 244, 204, .04) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .event-menu__link:hover,
+    .event-menu__link:focus-visible,
+    .event-menu__link.is-active,
+    .event-menu__link[aria-current="page"] {
+      color: var(--gold-3) !important;
+      border-color: rgba(255, 224, 154, .42) !important;
+      background: rgba(255, 255, 255, .08) !important;
+      box-shadow: inset 0 0 0 1px rgba(255, 244, 204, .04) !important;
+    }
+
+    .primary-nav__link:focus-visible,
+    .event-menu__link:focus-visible {
+      outline: 2px solid rgba(255, 224, 154, .72) !important;
+      outline-offset: 3px !important;
+    }
+
+    @media (min-width: 1400px) and (max-width: 1540px) {
+      .topbar {
+        max-width: 1260px !important;
+      }
+
+      .topbar__inner {
+        grid-template-columns: minmax(205px, auto) minmax(0, 1fr) auto !important;
+      }
+
+      .brand-lockup__name {
+        font-size: .82rem !important;
+      }
+
+      .brand-lockup__sub {
+        font-size: .68rem !important;
+      }
+
+      .primary-nav {
+        gap: .04rem !important;
+        padding-inline: .25rem !important;
+      }
+
+      .primary-nav__link {
+        min-height: 40px !important;
+        padding-inline: .42rem !important;
+        font-size: .62rem !important;
+        letter-spacing: .025em !important;
+      }
+
+      .nav-actions .btn-gold {
+        padding-inline: 1.1rem !important;
+      }
+    }
+
+
+    /* Ajuste final: remove a mancha/sombra em bloco da hero sem alterar a estrutura do layout. */
+    .hero::before,
+    .hero-copy::before,
+    .hero-copy::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    .hero-title,
+    .hero-title--banner {
+      filter: none !important;
+    }
+
+    .hero-title--banner {
+      text-shadow:
+        0 7px 0 rgba(42, 16, 0, .72),
+        0 16px 22px rgba(0, 0, 0, .42) !important;
+    }
+
+    .hero-title--banner::after {
+      box-shadow: none !important;
+    }
+
+    .hero-actions .btn-gold,
+    .hero-actions .btn-outline-warning {
+      box-shadow:
+        0 10px 22px rgba(0, 0, 0, .24),
+        inset 0 1px 0 rgba(255, 255, 255, .48) !important;
+    }
+
+    .hero-composer-media {
+      box-shadow:
+        0 10px 22px rgba(0, 0, 0, .18),
+        inset 0 0 18px rgba(246, 201, 106, .025) !important;
+    }
+
+    .hero-composer-card:is(.is-active, :hover) .hero-composer-media,
+    .hero-composer-card:focus-within .hero-composer-media,
+    .hero-copy:has([data-composer-target="ennio-morricone"]:is(:hover, :focus-visible)) [data-composer-card="ennio-morricone"] .hero-composer-media,
+    .hero-copy:has([data-composer-target="hans-zimmer"]:is(:hover, :focus-visible)) [data-composer-card="hans-zimmer"] .hero-composer-media,
+    .hero-copy:has([data-composer-target="john-williams"]:is(:hover, :focus-visible)) [data-composer-card="john-williams"] .hero-composer-media,
+    .hero-copy:has([data-composer-target="alan-silvestri"]:is(:hover, :focus-visible)) [data-composer-card="alan-silvestri"] .hero-composer-media {
+      box-shadow:
+        0 12px 26px rgba(0, 0, 0, .24),
+        0 0 0 1px rgba(255, 229, 166, .14),
+        inset 0 0 22px rgba(246, 201, 106, .04) !important;
+    }
+
+
+
+    .hero-title--banner.text-gradient-gold {
+      color: transparent !important;
+      -webkit-text-fill-color: transparent !important;
+      background: linear-gradient(180deg, #fff7d3 0%, #e5a84d 52%, #683104 58%, #fff0bd 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-stroke: 1px rgba(255, 239, 185, .38) !important;
+      filter:
+        drop-shadow(0 8px 0 rgba(38, 16, 2, .64)) drop-shadow(0 14px 16px rgba(0, 0, 0, .36)) !important;
+      text-shadow: none !important;
+    }
+
+    .hero-title--banner::after {
+      box-shadow: none !important;
+    }
   </style>
+
+  <noscript>
+    <style>
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
 </head>
+
 <body>
-  <a class="floating-whatsapp js-whatsapp" href="#" aria-label="Reservar convite pelo WhatsApp">
-    <i class="bi bi-whatsapp"></i>
+  <a class="floating-whatsapp js-whatsapp-link" href="#" aria-label="Reservar convite pelo WhatsApp">
+    <i class="bi bi-whatsapp" aria-hidden="true"></i>
   </a>
 
-  <main class="page-shell">
-    <section class="invitation-frame">
-      <span class="spotlight left"></span>
-      <span class="spotlight right"></span>
+  <div class="mobile-cta-bar" aria-label="Ações rápidas">
+    <button class="btn btn-gold rounded-pill px-3" type="button" data-bs-toggle="modal" data-bs-target="#reservationModal">
+      <i class="bi bi-ticket-perforated me-1" aria-hidden="true"></i>Reservar
+    </button>
+    <a class="btn btn-whatsapp rounded-pill px-3 js-whatsapp-link" href="#">
+      <i class="bi bi-whatsapp me-1" aria-hidden="true"></i>WhatsApp
+    </a>
+  </div>
 
-      <div class="hero text-center">
-        <div class="container-fluid position-relative">
-          <div class="row g-4 align-items-center justify-content-center">
-            <div class="col-12">
-              <div class="row g-2 g-md-3 justify-content-between align-items-center mb-4 reveal">
-                <div class="col-6 col-md-auto"><span class="composer-pill">Ennio Morricone</span></div>
-                <div class="col-6 col-md-auto"><span class="composer-pill">Hans Zimmer</span></div>
-                <div class="col-6 col-md-auto"><span class="composer-pill">John Williams</span></div>
-                <div class="col-6 col-md-auto"><span class="composer-pill">Alan Silvestri</span></div>
-              </div>
+  <header class="topbar" aria-label="Barra principal">
+    <div class="topbar__inner">
+      <a class="brand-lockup" href="#conteudo" aria-label="Ir para o início da página">
+        <span class="brand-lockup__mark" aria-hidden="true">CG</span>
+        <span>
+          <span class="brand-lockup__name">Camargo Guarnieri</span>
+          <span class="brand-lockup__sub">Orquestra Sinfônica</span>
+        </span>
+      </a>
 
-              <p class="sub-kicker mb-2 reveal">Uma noite mágica com o melhor do cinema</p>
-              <h1 class="main-title font-cinzel gold-text reveal">Tributo</h1>
-              <div class="ornament-line reveal"><i class="bi bi-music-note-beamed fs-2"></i></div>
+      <nav class="primary-nav" aria-label="Navegação principal">
+        <a class="primary-nav__link is-active" href="#conteudo" aria-current="page">Início</a>
+        <a class="primary-nav__link" href="#experiencia">Experiência</a>
+        <a class="primary-nav__link" href="#repertorio">Repertório</a>
+        <a class="primary-nav__link" href="#informacoes">Informações</a>
+        <a class="primary-nav__link" href="#reserva">Reserva</a>
+        <a class="primary-nav__link" href="#redes-sociais">Redes</a>
+        <a class="primary-nav__link" href="#apoiadores">Apoio</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline-light rounded-pill px-3 menu-toggle" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Abrir menu de navegação">
+          <i class="bi bi-list" aria-hidden="true"></i><span class="menu-toggle__text">Menu</span>
+        </button>
+        <button class="btn btn-gold rounded-pill px-4" type="button" data-bs-toggle="modal" data-bs-target="#reservationModal">
+          <!-- <i class="bi bi-ticket-perforated me-1" aria-hidden="true"></i> --><span>Reservar convite</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="offcanvas offcanvas-end event-menu" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuTitle">
+    <div class="offcanvas-header">
+      <div>
+        <p class="eyebrow mb-1">Menu</p>
+        <h2 class="offcanvas-title section-title h5 mb-0" id="mobileMenuTitle">Tributo</h2>
+      </div>
+      <button class="btn-close btn-close-white" type="button" data-bs-dismiss="offcanvas" aria-label="Fechar menu"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="event-menu__nav" aria-label="Navegação mobile">
+        <a class="event-menu__link is-active" href="#conteudo" data-bs-dismiss="offcanvas" aria-current="page">Início</a>
+        <a class="event-menu__link" href="#experiencia" data-bs-dismiss="offcanvas">Experiência</a>
+        <a class="event-menu__link" href="#repertorio" data-bs-dismiss="offcanvas">Repertório</a>
+        <a class="event-menu__link" href="#informacoes" data-bs-dismiss="offcanvas">Informações</a>
+        <a class="event-menu__link" href="#reserva" data-bs-dismiss="offcanvas">Reserva</a>
+        <a class="event-menu__link" href="#redes-sociais" data-bs-dismiss="offcanvas">Redes</a>
+        <a class="event-menu__link" href="#apoiadores" data-bs-dismiss="offcanvas">Apoio</a>
+      </nav>
+      <div class="event-menu__actions">
+        <button class="btn btn-gold rounded-pill px-4" type="button" data-bs-toggle="modal" data-bs-target="#reservationModal"
+          data-bs-dismiss="offcanvas">
+          <i class="bi bi-ticket-perforated me-2" aria-hidden="true"></i>Reservar convite
+        </button>
+        <a class="btn btn-whatsapp rounded-pill px-4 js-whatsapp-link" href="#" data-bs-dismiss="offcanvas">
+          <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-shell" id="conteudo">
+    <section class="hero" aria-labelledby="eventTitle">
+      <div class="section-wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow mb-3 reveal">Orquestra Sinfônica Camargo Guarnieri apresenta</p>
+
+            <ul class="composer-strip composer-strip--banner reveal" aria-label="Compositores homenageados">
+              <li><span class="composer-pill" data-composer-target="ennio-morricone" tabindex="0">Ennio Morricone</span></li>
+              <li><span class="composer-pill" data-composer-target="hans-zimmer" tabindex="0">Hans Zimmer</span></li>
+              <li><span class="composer-pill" data-composer-target="john-williams" tabindex="0">John Williams</span></li>
+              <li><span class="composer-pill" data-composer-target="alan-silvestri" tabindex="0">Alan Silvestri</span></li>
+            </ul>
+
+            <h1 class="hero-title hero-title--banner text-gradient-gold reveal" id="eventTitle">
+              <span>Tributo</span>
+            </h1>
+
+            <p class="hero-tagline reveal">Uma noite mágica com o melhor do cinema</p>
+
+            <p class="hero-lead reveal">
+              Uma noite criada para emocionar do primeiro acorde ao último aplauso, reunindo temas marcantes do cinema em uma experiência sinfônica elegante, intensa e memorável.
+            </p>
+
+            <div class="hero-actions reveal">
+              <button class="btn btn-gold btn-lg rounded-pill px-4 pulse-cta" type="button" data-bs-toggle="modal"
+                data-bs-target="#reservationModal">
+                <i class="bi bi-ticket-perforated me-2" aria-hidden="true"></i>Reservar convite
+              </button>
+              <a class="btn btn-outline-warning btn-lg rounded-pill px-4" href="#informacoes">
+                <i class="bi bi-arrow-down-circle me-2" aria-hidden="true"></i>Ver detalhes
+              </a>
             </div>
 
-            <div class="col-12 col-xl-10 order-1">
-              <div class="row g-4 align-items-stretch justify-content-center">
-                <div class="col-lg-6 reveal">
-                  <div class="event-card h-100 d-flex flex-column justify-content-center text-center">
-                    <a
-                      href="https://maps.app.goo.gl/hFvK7NtxnZLegnYb9"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="event-location-badge text-decoration-none"
-                      aria-label="Ver localização do evento no Google Maps"
-                    >
-                      <i class="bi bi-geo-alt-fill"></i>
-                      Localização do evento
-                    </a>
-                    <div class="date">25 de Junho</div>
-                    <div class="place mt-3">IF Goiano</div>
-                    <div class="time mt-1">19h30</div>
+            <div class="hero-composer-gallery reveal" aria-label="Imagens dos compositores homenageados">
+              <article class="hero-composer-card" data-composer-card="ennio-morricone">
+                <div class="hero-composer-media">
+                  <img src="assets/img/compositor/Ennio_Morricone.png" alt="Ennio Morricone" width="160" height="160" loading="lazy">
+                </div>
+                <strong class="hero-composer-name">Ennio Morricone</strong>
+              </article>
+              <article class="hero-composer-card" data-composer-card="hans-zimmer">
+                <div class="hero-composer-media">
+                  <img src="assets/img/compositor/Hans_Zimmer.png" alt="Hans Zimmer" width="160" height="160" loading="lazy">
+                </div>
+                <strong class="hero-composer-name">Hans Zimmer</strong>
+              </article>
+              <article class="hero-composer-card" data-composer-card="john-williams">
+                <div class="hero-composer-media">
+                  <img src="assets/img/compositor/John_Williams.png" alt="John Williams" width="160" height="160" loading="lazy">
+                </div>
+                <strong class="hero-composer-name">John Williams</strong>
+              </article>
+              <article class="hero-composer-card" data-composer-card="alan-silvestri">
+                <div class="hero-composer-media">
+                  <img src="assets/img/compositor/Alan_Silvestri.png" alt="Alan Silvestri" width="160" height="160" loading="lazy">
+                </div>
+                <strong class="hero-composer-name">Alan Silvestri</strong>
+              </article>
+            </div>
+          </div>
+
+          <aside class="hero-panel reveal" aria-label="Resumo do evento">
+            <div class="poster-content">
+              <div>
+                <div class="poster-mark poster-mark--osgc" aria-label="Orquestra Sinfônica Camargo Guarnieri">OSCG</div>
+                <p class="eyebrow text-center mb-0">Concerto especial</p>
+              </div>
+              <div class="poster-info">
+                <div class="date-card" aria-labelledby="heroDate">
+                  <span class="date-card__day" id="heroDate"><time datetime="2026-06-25T19:30:00-03:00">25 de Junho</time></span>
+                  <span class="date-card__meta">IF Goiano · 19h30</span>
+                </div>
+                <div class="poster-detail-grid">
+                  <div class="mini-detail">
+                    <span>Valor do ingresso</span>
+                    <strong>R$ 50,00</strong>
+                  </div>
+                  <div class="mini-detail">
+                    <span>Reserva</span>
+                    <strong>WhatsApp</strong>
                   </div>
                 </div>
-
-                <div class="col-lg-6 reveal">
-                  <div class="glass-card brand-card h-100 p-4 p-lg-5 text-center d-flex flex-column justify-content-center">
-                    <div class="brand-monogram brand-monogram-os">OSCG</div>
-                    <h2 class="section-title h3 mb-2">Orquestra Sinfônica</h2>
-                    <p class="font-cinzel text-uppercase mb-4" style="letter-spacing:.12em; color: var(--gold-2) !important;">Camargo Guarnieri</p>
-                    <button type="button" class="btn btn-gold btn-lg rounded-pill px-4 pulse-cta" data-bs-toggle="modal" data-bs-target="#reservationModal">
-                      <i class="bi bi-ticket-perforated me-2"></i>Reservar convite
+                <a class="btn btn-outline-warning rounded-pill px-4" href="https://maps.app.goo.gl/hFvK7NtxnZLegnYb9"
+                  target="_blank" rel="noopener noreferrer" aria-label="Ver localização do evento no Google Maps">
+                  <i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i>Localização do evento
+                </a>
+                <section class="poster-countdown" aria-labelledby="heroCountdownTitle">
+                  <div class="poster-countdown__head">
+                    <p class="poster-countdown__eyebrow mb-0">Contagem regressiva</p>
+                    <h2 class="poster-countdown__title" id="heroCountdownTitle">O grande dia se aproxima</h2>
+                  </div>
+                  <div class="countdown countdown--hero" aria-live="polite" data-js="countdown">
+                    <div class="countdown__item">
+                      <span class="countdown__number" data-countdown="days">--</span>
+                      <span class="countdown__label">dias</span>
+                    </div>
+                    <div class="countdown__item">
+                      <span class="countdown__number" data-countdown="hours">--</span>
+                      <span class="countdown__label">horas</span>
+                    </div>
+                    <div class="countdown__item">
+                      <span class="countdown__number" data-countdown="minutes">--</span>
+                      <span class="countdown__label">min</span>
+                    </div>
+                    <div class="countdown__item">
+                      <span class="countdown__number" data-countdown="seconds">--</span>
+                      <span class="countdown__label">seg</span>
+                    </div>
+                  </div>
+                  <div class="poster-countdown__footer">
+                    <span>Garanta seu convite antes do grande dia.</span>
+                    <button class="btn btn-outline-warning rounded-pill" type="button" data-js="shareButton">
+                      <i class="bi bi-share me-2" aria-hidden="true"></i>Compartilhar
                     </button>
                   </div>
+                </section>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <a class="scroll-cue text-decoration-none" href="#experiencia" aria-label="Rolar para conhecer a experiência">
+        <span>Conheça</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <section class="section-block" id="experiencia" aria-labelledby="experienceTitle">
+      <div class="section-wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow mb-2">Experiência</p>
+          <h2 class="section-title display-5 mb-3" id="experienceTitle">Mais que um convite: uma noite para lembrar</h2>
+          <p class="section-copy mb-0">Uma apresentação pensada para emocionar, informar e facilitar a reserva do convite com clareza.</p>
+        </div>
+
+        <div class="row g-3 g-xl-4">
+          <div class="col-md-4 reveal">
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true"><i class="bi bi-music-note-beamed"></i></div>
+              <h3>Trilhas inesquecíveis</h3>
+              <p>Um tributo às composições que marcaram gerações, com clima cinematográfico e presença de palco.</p>
+            </article>
+          </div>
+          <div class="col-md-4 reveal">
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true"><i class="bi bi-stars"></i></div>
+              <h3>Interpretação emocionante</h3>
+              <p>Repertório sinfônico preparado para valorizar cada tema, cada lembrança e cada momento da noite.</p>
+            </article>
+          </div>
+          <div class="col-md-4 reveal">
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true"><i class="bi bi-whatsapp"></i></div>
+              <h3>Reserva pelo WhatsApp</h3>
+              <p>Mensagem pronta para solicitar seu convite ao atendimento oficial do evento.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block pt-0" id="repertorio" aria-labelledby="composersTitle">
+      <div class="section-wrap">
+        <div class="glass-card experience-band reveal">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-4">
+              <p class="eyebrow mb-2">Repertório inspirado em</p>
+              <h2 class="section-title h1 mb-3" id="composersTitle">Grandes nomes do cinema</h2>
+              <p class="section-copy mb-0">O repertório aproxima o público de temas marcantes que atravessam gerações e grandes histórias do cinema.</p>
+            </div>
+            <div class="col-lg-8">
+              <div class="row g-3">
+                <div class="col-sm-6 col-xl-3">
+                  <article class="composer-card">
+                    <span>Clássico</span>
+                    <strong>Ennio Morricone</strong>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                  <article class="composer-card">
+                    <span>Épico</span>
+                    <strong>Hans Zimmer</strong>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                  <article class="composer-card">
+                    <span>Memorável</span>
+                    <strong>John Williams</strong>
+                  </article>
+                </div>
+                <div class="col-sm-6 col-xl-3">
+                  <article class="composer-card">
+                    <span>Aventura</span>
+                    <strong>Alan Silvestri</strong>
+                  </article>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <section class="container-fluid px-3 px-lg-5 pb-5">
-        <div class="glass-card p-4 p-lg-5 reveal">
-          <div class="row g-4 align-items-center">
-            <div class="col-lg-8">
-              <p class="sub-kicker mb-2">Evento especial</p>
-              <h2 class="section-title display-6 mb-3">Retire ou reserve seu convite</h2>
-              <p class="mb-0 text-opacity-75" style="color: var(--muted);">
-                Garanta sua presença em uma apresentação dedicada às trilhas inesquecíveis do cinema, com repertório inspirado em grandes compositores.
-              </p>
-            </div>
-            <div class="col-lg-4">
-              <div class="action-stack">
-                <button type="button" class="btn btn-gold btn-lg rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#reservationModal">
-                  <i class="bi bi-ticket-perforated me-2"></i>Reservar convite
-                </button>
-                <a class="btn btn-outline-warning btn-lg rounded-pill px-4" href="https://maps.app.goo.gl/SdzFviSMzrk8Kyku9" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-geo-alt-fill me-2"></i>Local de retirada
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass-card p-4 p-lg-5 mt-4 reveal">
-          <div class="text-center mb-4">
-            <p class="sub-kicker mb-2">Informações</p>
-            <h2 class="section-title h1 mb-0">Dados do convite</h2>
-          </div>
-
-          <div class="row g-3 g-xl-4">
-            <div class="col-md-6 col-xl-4">
-              <div class="event-info-card">
-                <div class="event-info-head">
-                  <div class="info-icon"><i class="bi bi-calendar-event"></i></div>
-                  <span class="event-info-title">Data</span>
-                </div>
-                <p class="event-info-value">25 de Junho</p>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-              <div class="event-info-card">
-                <div class="event-info-head">
-                  <div class="info-icon"><i class="bi bi-clock"></i></div>
-                  <span class="event-info-title">Horário</span>
-                </div>
-                <p class="event-info-value">19h30</p>
-              </div>
-            </div>
-
-            <div class="col-md-12 col-xl-4">
-              <div class="event-info-card event-info-featured">
-                <div class="event-info-head">
-                  <div class="info-icon"><i class="bi bi-cash-coin"></i></div>
-                  <span class="event-info-title">Ingresso</span>
-                </div>
-                <p class="event-info-value"><strong style="color: var(--gold-2);">R$ 50,00</strong> inteira</p>
-                <p class="event-info-value"><strong style="color: var(--gold-2);">R$ 25,00</strong> meia entrada</p>
-              </div>
-            </div>
-
-            <div class="col-12">
-              <a class="event-info-card event-info-featured d-block text-decoration-none" href="https://maps.app.goo.gl/SdzFviSMzrk8Kyku9" target="_blank" rel="noopener noreferrer">
-                <div class="row g-3 align-items-center">
-                  <div class="col-lg">
-                    <div class="event-info-head mb-2">
-                      <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
-                      <span class="event-info-title">Retirada da pulseira</span>
-                    </div>
-                    <p class="event-info-value mb-1">Escola de Música Camargo Guarnieri</p>
-                    <p class="event-info-value mb-0">R. Ernesto Tito, 296 - Vila Carolina, Rio Verde - GO, 75906-441</p>
-                  </div>
-                  <div class="col-lg-auto">
-                    <span class="btn btn-outline-warning rounded-pill px-4">
-                      <i class="bi bi-map me-2"></i>Abrir no Google Maps
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass-card p-4 p-lg-5 mt-4 reveal">
-          <div class="text-center mb-4">
-            <p class="sub-kicker mb-2">Meia entrada</p>
-            <h2 class="section-title h1 mb-0">Quem paga R$ 25,00</h2>
-          </div>
-
-          <div class="row g-3">
-            <div class="col-md-4">
-              <div class="benefit-card">
-                <div class="event-info-head">
-                  <div class="info-icon"><i class="bi bi-person-hearts"></i></div>
-                  <span class="event-info-title">Crianças menores de 10 anos</span>
-                </div>
-                <p class="event-info-value">Pagam <strong>meia entrada</strong>, no valor de R$ 25,00.</p>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="benefit-card">
-                <div class="event-info-head">
-                  <div class="info-icon"><i class="bi bi-stars"></i></div>
-                  <span class="event-info-title">Crianças com TEA</span>
-                </div>
-                <p class="event-info-value">Crianças com Transtorno do Espectro Autista também pagam <strong>meia entrada</strong>.</p>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="benefit-card">
-                <div class="event-info-head">
-                  <div class="info-icon"><i class="bi bi-universal-access-circle"></i></div>
-                  <span class="event-info-title">Pessoas com deficiência - PcD</span>
-                </div>
-                <p class="event-info-value">Pessoas com deficiência pagam <strong>meia entrada</strong>, no valor de R$ 25,00.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row g-4 mt-1 align-items-stretch">
-          <div class="col-lg-7 reveal">
-            <div class="glass-card p-4 p-lg-5 h-100">
-              <div class="d-flex flex-column flex-md-row justify-content-between gap-3 align-items-md-center mb-4">
-                <div>
-                  <p class="sub-kicker mb-2">Contagem regressiva</p>
-                  <h2 class="section-title h1 mb-0">Faltam</h2>
-                </div>
-                <button type="button" class="btn btn-outline-warning rounded-pill px-4" id="shareButton">
-                  <i class="bi bi-share me-2"></i>Compartilhar
-                </button>
-              </div>
-              <div class="d-flex flex-wrap gap-3" id="countdown" aria-live="polite">
-                <div class="countdown-box text-center"><span class="countdown-number" id="days">--</span><span class="countdown-label">dias</span></div>
-                <div class="countdown-box text-center"><span class="countdown-number" id="hours">--</span><span class="countdown-label">horas</span></div>
-                <div class="countdown-box text-center"><span class="countdown-number" id="minutes">--</span><span class="countdown-label">min</span></div>
-                <div class="countdown-box text-center"><span class="countdown-number" id="seconds">--</span><span class="countdown-label">seg</span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-5 reveal">
-            <div class="glass-card p-4 p-lg-5 h-100 d-flex flex-column justify-content-center">
-              <p class="sub-kicker mb-2">Reserva rápida</p>
-              <h2 class="section-title h1 mb-3">WhatsApp</h2>
-              <p class="mb-3" style="color: var(--muted);">Clique no botão abaixo para abrir a conversa com a mensagem pronta e solicitar seu convite.</p>
-              <div class="mb-4 small" style="color: var(--muted);">
-                <div><i class="bi bi-cash-coin me-2" style="color: var(--gold-2);"></i>Inteira: <strong>R$ 50,00</strong> | Meia: <strong>R$ 25,00</strong></div>
-                <div class="mt-2"><i class="bi bi-bag-check me-2" style="color: var(--gold-2);"></i>Retirada da pulseira: Escola de Música Camargo Guarnieri</div>
-              </div>
-              <div class="d-grid gap-3">
-                <a class="btn btn-whatsapp btn-lg rounded-pill js-whatsapp" href="#">
-                  <i class="bi bi-whatsapp me-2"></i>Reservar pelo WhatsApp
-                </a>
-                <a class="btn btn-outline-warning btn-lg rounded-pill" href="https://maps.app.goo.gl/SdzFviSMzrk8Kyku9" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-geo-alt-fill me-2"></i>Local de retirada
-                </a>
-                <a class="btn btn-outline-light btn-lg rounded-pill" href="tel:+556436212607">
-                  <i class="bi bi-telephone me-2"></i>Ligar: (64) 3621-2607
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass-card p-4 p-lg-5 mt-4 reveal">
-          <p class="sub-kicker text-center mb-3">Apoio</p>
-          <div class="d-flex flex-wrap justify-content-center gap-3">
-            <!-- Troque o caminho das imagens abaixo pelos arquivos reais dos apoiadores. -->
-            <a class="support-logo logo-light" href="#" aria-label="MapleBear Canadian School">
-              <img src="assets/img/apoiadores/maplebear.png" alt="MapleBear Canadian School" loading="lazy">
-            </a>
-
-            <a class="support-logo logo-transparent" href="#" aria-label="Camargo Guarnieri Escola de Música">
-              <img src="assets/img/apoiadores/camargo-guarnieri.png" alt="Camargo Guarnieri Escola de Música" loading="lazy">
-            </a>
-
-            <a class="support-logo logo-transparent" href="#" aria-label="Instituto Federal Goiano">
-              <img src="assets/img/apoiadores/if-goiano.png" alt="Instituto Federal Goiano" loading="lazy">
-            </a>
-          </div>
-        </div>
-
-        <div class="footer-note text-center mt-4 pt-4 reveal">
-          <p class="font-cinzel text-uppercase mb-2" style="letter-spacing:.14em; color: var(--gold-2);">Uma noite mágica com o melhor do cinema</p>
-          <p class="mb-0">Reserve pelo WhatsApp e retire sua pulseira na Escola de Música Camargo Guarnieri.</p>
-        </div>
-      </section>
     </section>
+
+    <section class="section-block" id="informacoes" aria-labelledby="infoTitle" data-js="contentSections">
+      <div class="section-wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow mb-2">Informações</p>
+          <h2 class="section-title display-5 mb-3" id="infoTitle">Informações do evento</h2>
+          <p class="section-copy mb-0">Confira as informações oficiais do concerto, organize sua chegada ao IF Goiano e garanta seu convite com antecedência.</p>
+        </div>
+
+        <div class="row g-3 g-xl-4">
+          <div class="col-md-6 col-xl-3 reveal">
+            <div class="info-card">
+              <div class="info-card__head">
+                <div class="info-card__icon" aria-hidden="true"><i class="bi bi-calendar-event"></i></div>
+                <span class="info-card__title">Data</span>
+              </div>
+              <p class="info-card__text"><time datetime="2026-06-25">25 de Junho</time></p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3 reveal">
+            <div class="info-card">
+              <div class="info-card__head">
+                <div class="info-card__icon" aria-hidden="true"><i class="bi bi-clock"></i></div>
+                <span class="info-card__title">Horário</span>
+              </div>
+              <p class="info-card__text"><time datetime="19:30">19h30</time></p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3 reveal">
+            <div class="info-card">
+              <div class="info-card__head">
+                <div class="info-card__icon" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
+                <span class="info-card__title">Local</span>
+              </div>
+              <p class="info-card__text">IF Goiano</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3 reveal">
+            <div class="info-card info-card--featured">
+              <div class="info-card__head">
+                <div class="info-card__icon" aria-hidden="true"><i class="bi bi-cash-coin"></i></div>
+                <span class="info-card__title">Valor do ingresso</span>
+              </div>
+              <p class="info-card__text"><strong class="text-gold-soft">R$ 50,00</strong></p>
+            </div>
+          </div>
+
+          <div class="col-12 reveal">
+            <a class="info-card info-card--featured d-block text-decoration-none js-pickup-card"
+              href="https://maps.app.goo.gl/SdzFviSMzrk8Kyku9" target="_blank" rel="noopener noreferrer">
+              <div class="row g-3 align-items-center">
+                <div class="col-lg">
+                  <div class="info-card__head mb-2">
+                    <div class="info-card__icon" aria-hidden="true"><i class="bi bi-bag-check"></i></div>
+                    <span class="info-card__title js-pickup-title">Retirada da pulseira</span>
+                  </div>
+                  <address>
+                    <p class="info-card__text mb-1 js-pickup-primary">Escola de Música Camargo Guarnieri</p>
+                    <p class="info-card__text mb-0 js-pickup-secondary">R. Ernesto Tito, 296 - Vila Carolina, Rio Verde - GO, 75906-441</p>
+                  </address>
+                </div>
+                <div class="col-lg-auto js-pickup-card-action">
+                  <span class="btn btn-outline-warning rounded-pill px-4">
+                    <i class="bi bi-map me-2" aria-hidden="true"></i>Abrir no Google Maps
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-2 align-items-stretch justify-content-center">
+          <div class="col-12 reveal">
+            <section class="glass-card quick-card reservation-panel h-100" id="reserva"
+              aria-labelledby="whatsappTitle" data-js="quickWhatsAppCard">
+              <div class="reservation-panel__content">
+                <p class="eyebrow mb-2">Reserva oficial</p>
+                <h2 class="section-title h1 mb-3" id="whatsappTitle">WhatsApp</h2>
+                <p class="mb-3 text-muted-gold">Envie a mensagem ao atendimento oficial para confirmar a reserva do seu convite.</p>
+                <div class="small text-muted-gold">
+                  <div><i class="bi bi-cash-coin me-2 text-gold-soft" aria-hidden="true"></i>Valor do ingresso: <strong>R$ 50,00</strong></div>
+                  <div class="mt-2" data-js="pickupSummary"><i class="bi bi-bag-check me-2 text-gold-soft"
+                      aria-hidden="true"></i>Retirada da pulseira: Escola de Música Camargo Guarnieri</div>
+                </div>
+              </div>
+              <div class="quick-actions reservation-panel__actions" data-js="quickActions">
+                <a class="btn btn-whatsapp btn-lg rounded-pill js-whatsapp-link" href="#">
+                  <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>Reservar pelo WhatsApp
+                </a>
+                <a class="btn btn-outline-warning btn-lg rounded-pill js-pickup-link"
+                  href="https://maps.app.goo.gl/SdzFviSMzrk8Kyku9" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i>Local de retirada
+                </a>
+                <a class="btn btn-outline-light btn-lg rounded-pill" href="tel:+556436212607" data-js="phoneButton">
+                  <i class="bi bi-telephone me-2" aria-hidden="true"></i>Ligar: (64) 3621-2607
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block pt-0" id="redes-sociais" aria-labelledby="socialTitle">
+      <div class="section-wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow mb-2">Redes sociais</p>
+          <h2 class="section-title display-5 mb-3" id="socialTitle">Acompanhe a Camargo Guarnieri</h2>
+          <p class="section-copy mb-0">Siga os canais de contato, acompanhe novidades e compartilhe o concerto com quem também aprecia música sinfônica.</p>
+        </div>
+
+        <div class="row g-3 g-xl-4">
+          <div class="col-sm-6 col-xl-3 reveal">
+            <a class="social-card" href="https://www.instagram.com/camargo.guarnieri/" target="_blank" rel="noopener noreferrer" aria-label="Acompanhar a Camargo Guarnieri no Instagram">
+              <div>
+                <span class="social-card__icon" aria-hidden="true"><i class="bi bi-instagram"></i></span>
+                <strong class="social-card__title">Instagram</strong>
+                <p class="social-card__text">Acompanhe publicações, bastidores, registros dos alunos e novidades da programação.</p>
+              </div>
+              <span class="social-card__action">Acessar <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+
+          <div class="col-sm-6 col-xl-3 reveal">
+            <a class="social-card js-whatsapp-link" href="#" aria-label="Reservar convite pelo WhatsApp">
+              <div>
+                <span class="social-card__icon" aria-hidden="true"><i class="bi bi-whatsapp"></i></span>
+                <strong class="social-card__title">WhatsApp</strong>
+                <p class="social-card__text">Solicite seu convite pelo atendimento oficial da Camargo Guarnieri.</p>
+              </div>
+              <span class="social-card__action">Chamar agora <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+
+          <div class="col-sm-6 col-xl-3 reveal">
+            <a class="social-card" href="tel:+556436212607" aria-label="Ligar para a Escola de Música Camargo Guarnieri">
+              <div>
+                <span class="social-card__icon" aria-hidden="true"><i class="bi bi-telephone-fill"></i></span>
+                <strong class="social-card__title">Telefone</strong>
+                <p class="social-card__text">Fale com o atendimento para tirar dúvidas sobre reserva, retirada e informações do evento.</p>
+              </div>
+              <span class="social-card__action">Ligar <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+
+          <div class="col-sm-6 col-xl-3 reveal">
+            <a class="social-card" href="https://maps.app.goo.gl/SdzFviSMzrk8Kyku9" target="_blank" rel="noopener noreferrer" aria-label="Ver localização da retirada no Google Maps">
+              <div>
+                <span class="social-card__icon" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+                <strong class="social-card__title">Localização</strong>
+                <p class="social-card__text">Veja o endereço para retirada da pulseira e organize o melhor trajeto com antecedência.</p>
+              </div>
+              <span class="social-card__action">Abrir mapa <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block pt-0" id="apoiadores" aria-labelledby="supportTitle">
+      <div class="section-wrap">
+        <div class="glass-card quick-card reveal">
+          <!-- <p class="eyebrow text-center mb-2">Apoio</p> -->
+          <h2 class="section-title h1 text-center mb-4" id="supportTitle">Parceiros do evento</h2>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a class="support-logo" href="#" aria-label="MapleBear Canadian School">
+              <img class="support-logo__image" src="assets/img/apoiadores/maplebear.png" alt="MapleBear Canadian School"
+                loading="lazy" width="180" height="100"
+                onerror="this.classList.add('is-hidden'); this.nextElementSibling.classList.remove('is-hidden');">
+              <span class="support-logo__fallback is-hidden">MapleBear<br>Canadian School</span>
+            </a>
+            <a class="support-logo" href="#" aria-label="Camargo Guarnieri Escola de Música">
+              <img class="support-logo__image" src="assets/img/apoiadores/camargo-guarnieri.png"
+                alt="Camargo Guarnieri Escola de Música" loading="lazy" width="180" height="100"
+                onerror="this.classList.add('is-hidden'); this.nextElementSibling.classList.remove('is-hidden');">
+              <span class="support-logo__fallback is-hidden">Camargo Guarnieri<br>Escola de Música</span>
+            </a>
+            <a class="support-logo" href="#" aria-label="Instituto Federal Goiano">
+              <img class="support-logo__image" src="assets/img/apoiadores/if-goiano.png" alt="Instituto Federal Goiano"
+                loading="lazy" width="180" height="100"
+                onerror="this.classList.add('is-hidden'); this.nextElementSibling.classList.remove('is-hidden');">
+              <span class="support-logo__fallback is-hidden">Instituto Federal<br>Goiano</span>
+            </a>
+            <a class="support-logo" href="#" aria-label="Coral Municipal">
+              <img class="support-logo__image" src="assets/img/apoiadores/coral-municipal.png" alt="Coral Municipal"
+                loading="lazy" width="180" height="100"
+                onerror="this.classList.add('is-hidden'); this.nextElementSibling.classList.remove('is-hidden');">
+              <span class="support-logo__fallback is-hidden">Coral<br>Municipal</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note reveal">
+      <p class="font-cinzel text-uppercase mb-2 text-gold-soft">Uma noite mágica com o melhor do cinema</p>
+      <p class="mb-0" data-js="footerPickupLine">Reserve pelo WhatsApp e retire sua pulseira na Escola de Música Camargo Guarnieri.</p>
+      <address class="poster-contact-line mt-3" aria-label="Contatos do evento" data-js="footerContacts">
+        <a href="tel:+556436212607" data-js="footerPhoneLink" aria-label="Ligar para o atendimento do evento">
+          <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i><span data-js="footerPhoneLabel">(64) 3621-2607</span>
+        </a>
+        <a class="js-whatsapp-link" href="#" data-js="footerWhatsAppLink" aria-label="Reservar convite pelo WhatsApp">
+          <i class="bi bi-whatsapp me-2" aria-hidden="true"></i><span data-js="footerWhatsAppLabel">(64) 98104-4281</span>
+        </a>
+      </address>
+    </footer>
   </main>
 
   <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
@@ -939,64 +4037,59 @@
       <div class="modal-content">
         <div class="modal-header">
           <div>
-            <p class="sub-kicker mb-1">Reserva de convite</p>
-            <h5 class="modal-title section-title" id="reservationModalLabel">Enviar mensagem pelo WhatsApp</h5>
+            <p class="eyebrow mb-1">Reserva de convite</p>
+            <h2 class="modal-title section-title h5" id="reservationModalLabel">Enviar mensagem pelo WhatsApp</h2>
           </div>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
 
-        <form id="reservationForm">
-          <div class="modal-body">
-            <div class="alert rounded-4 mb-3 total-box">
-              <div><strong>Inteira:</strong> R$ 50,00 por pessoa.</div>
-              <div><strong>Meia entrada:</strong> R$ 25,00 para crianças menores de 10 anos, crianças com TEA e pessoas com deficiência - PcD.</div>
-              <div class="small mt-1" style="color: var(--muted);">A pulseira deve ser retirada na Escola de Música Camargo Guarnieri.</div>
+        <form id="reservationForm" novalidate>
+          <div class="modal-body" data-js="modalBody">
+            <div class="alert rounded-2 mb-3 message-box" data-js="modalTicketAlert">
+              <div><strong>Valor do ingresso:</strong> R$ 50,00 por pessoa.</div>
+              <div class="small mt-1 text-muted-gold" data-js="modalPickupLine">A pulseira deve ser retirada na Escola de Música Camargo Guarnieri.</div>
             </div>
 
             <div class="mb-3">
-              <label for="guestName" class="form-label">Seu nome</label>
-              <input type="text" class="form-control form-control-lg rounded-4" id="guestName" placeholder="Digite seu nome" required>
+              <label class="form-label" for="guestName">Seu nome</label>
+              <input class="form-control form-control-lg rounded-2" id="guestName" name="guestName" type="text"
+                placeholder="Digite seu nome" autocomplete="name" required>
+              <div class="invalid-feedback">Informe seu nome para montar a mensagem de reserva.</div>
             </div>
 
             <div class="row g-3 mb-3">
-              <div class="col-md-6">
+              <div class="col-12">
                 <div class="ticket-input-card h-100">
-                  <label for="fullTicketQuantity" class="form-label">Convites inteiros</label>
-                  <input type="number" class="form-control form-control-lg rounded-4 ticket-quantity" id="fullTicketQuantity" min="0" step="1" inputmode="numeric" value="1">
-                  <div class="small mt-2" style="color: var(--muted);">R$ 50,00 cada</div>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="ticket-input-card h-100">
-                  <label for="halfTicketQuantity" class="form-label">Meias entradas</label>
-                  <input type="number" class="form-control form-control-lg rounded-4 ticket-quantity" id="halfTicketQuantity" min="0" step="1" inputmode="numeric" value="0">
-                  <div class="small mt-2" style="color: var(--muted);">R$ 25,00 cada</div>
+                  <label class="form-label" for="ticketQuantity">Quantidade de convites</label>
+                  <input class="form-control form-control-lg rounded-2 js-ticket-quantity" id="ticketQuantity"
+                    name="ticketQuantity" type="number" min="0" step="1" inputmode="numeric" value="1">
+                  <div class="small mt-2 text-muted-gold">R$ 50,00 cada</div>
                 </div>
               </div>
             </div>
 
             <div class="mb-3">
-              <div class="alert rounded-4 mb-0 total-box">
+              <div class="alert rounded-2 mb-0 message-box">
                 <div class="d-flex flex-column gap-1">
-                  <div><strong>Inteiras:</strong> <span id="fullTicketLabel">1</span> × R$ 50,00 = <span id="fullTicketTotalLabel">R$ 50,00</span></div>
-                  <div><strong>Meias:</strong> <span id="halfTicketLabel">0</span> × R$ 25,00 = <span id="halfTicketTotalLabel">R$ 0,00</span></div>
-                  <div><strong>Total de convites:</strong> <span id="totalTicketQuantityLabel">1</span></div>
-                  <div><strong>Total:</strong> <span class="total-price" id="totalPriceLabel">R$ 50,00</span></div>
+                  <div><strong>Quantidade de convites:</strong> <span data-total="ticketQuantity">1</span> × R$ 50,00 = <span
+                      data-total="ticketValue">R$ 50,00</span></div>
+                  <div><strong>Total de convites:</strong> <span data-total="quantity">1</span></div>
+                  <div><strong>Total:</strong> <span class="total-price" data-total="value">R$ 50,00</span></div>
                 </div>
               </div>
             </div>
 
             <div class="mb-0">
-              <label for="guestNote" class="form-label">Observação opcional</label>
-              <textarea class="form-control rounded-4" id="guestNote" rows="3" placeholder="Ex.: vou retirar na secretaria"></textarea>
+              <label class="form-label" for="guestNote">Observação opcional</label>
+              <textarea class="form-control rounded-2" id="guestNote" name="guestNote" rows="3"
+                placeholder="Ex.: quero combinar a retirada"></textarea>
             </div>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-whatsapp rounded-pill px-4">
-              <i class="bi bi-whatsapp me-2"></i>Abrir WhatsApp
+            <button class="btn btn-outline-light rounded-pill px-4" type="button" data-bs-dismiss="modal">Cancelar</button>
+            <button class="btn btn-whatsapp rounded-pill px-4" type="submit">
+              <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>Abrir WhatsApp
             </button>
           </div>
         </form>
@@ -1004,219 +4097,771 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    $(function () {
-      const whatsappNumber = "5564981044281";
+    (() => {
+      'use strict';
 
-      const eventTitle = "Tributo - Orquestra Sinfônica Camargo Guarnieri";
-      const eventDate = "25 de Junho";
-      const eventTime = "19h30";
-      const eventPlace = "IF Goiano";
-      const eventMapsUrl = "https://maps.app.goo.gl/hFvK7NtxnZLegnYb9";
+      const EVENT = Object.freeze({
+        title: 'Tributo - Orquestra Sinfônica Camargo Guarnieri',
+        dateLabel: '25 de Junho',
+        timeLabel: '19h30',
+        place: 'IF Goiano',
+        mapsUrl: 'https://maps.app.goo.gl/hFvK7NtxnZLegnYb9',
+        monthIndex: 5,
+        day: 25,
+        hour: 19,
+        minute: 30,
+        ticketPrice: 50,
+        ticketPriceText: 'Valor do ingresso: R$ 50,00',
+        pickupPlace: 'Escola de Música Camargo Guarnieri',
+        pickupAddress: 'R. Ernesto Tito, 296 - Vila Carolina, Rio Verde - GO, 75906-441',
+        pickupMapsUrl: 'https://maps.app.goo.gl/SdzFviSMzrk8Kyku9'
+      });
 
-      const fullTicketPrice = 50;
-      const halfTicketPrice = 25;
-      const ticketPriceText = "Inteira: R$ 50,00 | Meia entrada: R$ 25,00";
-      const halfTicketRules = "Meia entrada para crianças menores de 10 anos, crianças com TEA e pessoas com deficiência - PcD";
+      const OFFICIAL_SELLER = Object.freeze({
+        slug: 'oficial',
+        name: 'Escola de Música Camargo Guarnieri',
+        phone: '556436212607',
+        phoneLabel: '(64) 3621-2607',
+        whatsapp: '5564981044281',
+        whatsappLabel: '(64) 98104-4281',
+        isOfficial: true
+      });
 
-      const pickupPlace = "Escola de Música Camargo Guarnieri";
-      const pickupAddress = "R. Ernesto Tito, 296 - Vila Carolina, Rio Verde - GO, 75906-441";
-      const pickupMapsUrl = "https://maps.app.goo.gl/SdzFviSMzrk8Kyku9";
+      const SELLERS = Object.freeze([{
+          slug: 'weverson',
+          name: 'Weverson',
+          phone: '5564981213931',
+          whatsapp: '5564981213931',
+          phoneLabel: '(64) 9 8121-3931',
+          whatsappLabel: '(64) 9 8121-3931'
+        },
+        {
+          slug: 'renison',
+          name: 'Renison',
+          phone: '5564986255986',
+          whatsapp: '5564986255986',
+          phoneLabel: '(64) 9 8625-5986',
+          whatsappLabel: '(64) 9 8625-5986'
+        }
+      ]);
 
-      function buildWhatsAppUrl(message) {
-        return "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
-      }
+      const SELECTOR = Object.freeze({
+        contentSections: '[data-js="contentSections"]',
+        modalBody: '[data-js="modalBody"]',
+        reservationForm: '#reservationForm',
+        guestName: '#guestName',
+        guestNote: '#guestNote',
+        ticketQuantityInput: '#ticketQuantity',
+        ticketQuantity: '.js-ticket-quantity',
+        whatsappLink: '.js-whatsapp-link',
+        pickupLink: '.js-pickup-link',
+        pickupCard: '.js-pickup-card',
+        pickupTitle: '.js-pickup-title',
+        pickupPrimary: '.js-pickup-primary',
+        pickupSecondary: '.js-pickup-secondary',
+        pickupCardAction: '.js-pickup-card-action',
+        pickupSummary: '[data-js="pickupSummary"]',
+        modalPickupLine: '[data-js="modalPickupLine"]',
+        footerPickupLine: '[data-js="footerPickupLine"]',
+        footerPhoneLink: '[data-js="footerPhoneLink"]',
+        footerPhoneLabel: '[data-js="footerPhoneLabel"]',
+        footerWhatsAppLink: '[data-js="footerWhatsAppLink"]',
+        footerWhatsAppLabel: '[data-js="footerWhatsAppLabel"]',
+        quickWhatsAppCard: '[data-js="quickWhatsAppCard"]',
+        quickActions: '[data-js="quickActions"]',
+        phoneButton: '[data-js="phoneButton"]',
+        shareButton: '[data-js="shareButton"]',
+        composerTarget: '[data-composer-target]',
+        composerCard: '[data-composer-card]',
+        reveal: '.reveal'
+      });
 
-      function formatCurrency(value) {
-        return value.toLocaleString("pt-BR", {
-          style: "currency",
-          currency: "BRL"
-        });
-      }
+      const $ = (selector, scope = document) => scope.querySelector(selector);
+      const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 
-      function normalizeQuantity(value) {
-        const quantity = parseInt(value, 10);
+      const formatCurrency = value => Number(value || 0).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      });
 
-        if (isNaN(quantity) || quantity < 0) {
-          return 0;
+      const onlyDigits = value => String(value || '').replace(/\D/g, '');
+
+      const normalizeSlug = value => String(value || '')
+        .trim()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+
+      const isValidWhatsAppNumber = value => onlyDigits(value).length >= 12;
+
+      const createElementFromHtml = html => {
+        const template = document.createElement('template');
+        template.innerHTML = html.trim();
+        return template.content.firstElementChild;
+      };
+
+      const formatPhoneFromDigits = value => {
+        const digits = onlyDigits(value);
+
+        if (!digits.startsWith('55') || digits.length < 12) {
+          return digits;
         }
 
-        return quantity;
-      }
+        const ddd = digits.slice(2, 4);
+        const number = digits.slice(4);
 
-      function getTicketSummary() {
-        const fullQuantity = normalizeQuantity($("#fullTicketQuantity").val());
-        const halfQuantity = normalizeQuantity($("#halfTicketQuantity").val());
-        const fullTotal = fullQuantity * fullTicketPrice;
-        const halfTotal = halfQuantity * halfTicketPrice;
-        const totalQuantity = fullQuantity + halfQuantity;
-        const totalValue = fullTotal + halfTotal;
+        if (number.length === 9) {
+          return `(${ddd}) ${number.slice(0, 5)}-${number.slice(5)}`;
+        }
+
+        if (number.length === 8) {
+          return `(${ddd}) ${number.slice(0, 4)}-${number.slice(4)}`;
+        }
+
+        return digits;
+      };
+
+      const sanitizeSeller = seller => {
+        const whatsapp = onlyDigits(seller.whatsapp);
+        const phone = onlyDigits(seller.phone || seller.whatsapp);
 
         return {
-          fullQuantity,
-          halfQuantity,
-          fullTotal,
-          halfTotal,
-          totalQuantity,
-          totalValue
+          slug: normalizeSlug(seller.slug || seller.name),
+          name: seller.name || 'Vendedor',
+          phone,
+          whatsapp,
+          phoneLabel: seller.phoneLabel || formatPhoneFromDigits(phone),
+          whatsappLabel: seller.whatsappLabel || seller.phoneLabel || formatPhoneFromDigits(whatsapp),
+          isOfficial: Boolean(seller.isOfficial)
         };
-      }
+      };
 
-      function updateTotalPrice() {
-        const summary = getTicketSummary();
+      const normalizedOfficialSeller = sanitizeSeller(OFFICIAL_SELLER);
+      const normalizedSellers = SELLERS
+        .map(sanitizeSeller)
+        .filter(seller => seller.slug && seller.name && isValidWhatsAppNumber(seller.whatsapp));
 
-        $("#fullTicketLabel").text(summary.fullQuantity);
-        $("#halfTicketLabel").text(summary.halfQuantity);
-        $("#fullTicketTotalLabel").text(formatCurrency(summary.fullTotal));
-        $("#halfTicketTotalLabel").text(formatCurrency(summary.halfTotal));
-        $("#totalTicketQuantityLabel").text(summary.totalQuantity);
-        $("#totalPriceLabel").text(formatCurrency(summary.totalValue));
-      }
+      const getUrlParam = name => new URLSearchParams(window.location.search).get(name);
+      const requestedSellerSlug = normalizeSlug(getUrlParam('vendedor'));
 
-      function defaultMessage() {
-        return "Olá! Gostaria de reservar meu convite para o " +
-          eventTitle +
-          ", no dia " + eventDate +
-          ", às " + eventTime +
-          ", no " + eventPlace +
-          ". Valores: " + ticketPriceText +
-          ". " + halfTicketRules +
-          ". Local do evento: " + eventMapsUrl +
-          ". Retirada da pulseira em " + pickupPlace +
-          ", no endereço: " + pickupAddress +
-          ". Localização da retirada: " + pickupMapsUrl + ".";
-      }
+      const getActiveSeller = () => {
+        if (!requestedSellerSlug) {
+          return normalizedOfficialSeller;
+        }
 
-      $(".js-whatsapp").on("click", function (event) {
-        event.preventDefault();
-        window.open(buildWhatsAppUrl(defaultMessage()), "_blank", "noopener,noreferrer");
-      });
+        return normalizedSellers.find(seller => seller.slug === requestedSellerSlug) || normalizedOfficialSeller;
+      };
 
-      $(".ticket-quantity").on("input change", function () {
-        const sanitizedQuantity = normalizeQuantity($(this).val());
-        $(this).val(sanitizedQuantity);
-        updateTotalPrice();
-      });
+      const activeSeller = getActiveSeller();
+      const sellerWasRequested = Boolean(requestedSellerSlug);
+      const sellerWasFound = !sellerWasRequested || activeSeller.slug === requestedSellerSlug;
 
-      $("#reservationForm").on("submit", function (event) {
-        event.preventDefault();
+      const getBaseEventUrl = () => {
+        const url = new URL(window.location.href);
+        url.search = '';
+        url.hash = '';
+        url.pathname = url.pathname.replace(/\/index\.html$/i, '/');
+        return url.toString();
+      };
 
-        const name = $.trim($("#guestName").val());
-        const note = $.trim($("#guestNote").val());
-        const summary = getTicketSummary();
+      const getSellerLink = seller => {
+        const url = new URL(getBaseEventUrl());
+        url.searchParams.set('vendedor', seller.slug);
+        return url.toString();
+      };
 
-        if (!summary.totalQuantity || summary.totalQuantity < 1) {
-          alert("Informe pelo menos 1 convite inteiro ou 1 meia entrada.");
+      const getCurrentShareUrl = () => activeSeller.isOfficial ? getBaseEventUrl() : getSellerLink(activeSeller);
+
+      const buildWhatsAppUrl = (message, seller = activeSeller) => (
+        `https://wa.me/${seller.whatsapp}?text=${encodeURIComponent(message)}`
+      );
+
+      const normalizeQuantity = value => {
+        const quantity = Number.parseInt(value, 10);
+        return Number.isFinite(quantity) && quantity > 0 ? quantity : 0;
+      };
+
+      const getSellerMessageLine = () => '';
+
+      const getPickupInfo = () => {
+        if (activeSeller.isOfficial) {
+          return {
+            hasMap: true,
+            title: 'Retirada da pulseira',
+            primary: EVENT.pickupPlace,
+            secondary: EVENT.pickupAddress,
+            summaryLine: `Retirada da pulseira: ${EVENT.pickupPlace}`,
+            modalLine: `A pulseira deve ser retirada na ${EVENT.pickupPlace}.`,
+            footerLine: 'Reserve pelo WhatsApp e retire sua pulseira na Escola de Música Camargo Guarnieri.',
+            messageLine: ''
+          };
+        }
+
+        return {
+          hasMap: false,
+          title: 'Retirada com o vendedor',
+          primary: `Diretamente com ${activeSeller.name}`,
+          secondary: 'Combine a entrega da pulseira pelo WhatsApp do vendedor responsável.',
+          summaryLine: `Retirada da pulseira: diretamente com ${activeSeller.name}`,
+          modalLine: `A pulseira deve ser retirada diretamente com ${activeSeller.name}. Combine a entrega pelo WhatsApp do vendedor responsável.`,
+          footerLine: `Reserve pelo WhatsApp e retire sua pulseira diretamente com ${activeSeller.name}.`,
+          messageLine: ''
+        };
+      };
+
+      const copyTextToClipboard = async text => {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
           return;
         }
 
-        let message =
-          "Olá! Meu nome é " + name +
-          ". Gostaria de reservar convite(s) para o " + eventTitle +
-          ", no dia " + eventDate +
-          ", às " + eventTime +
-          ", no " + eventPlace + "." +
-          " Quantidade: " + summary.fullQuantity + " inteira(s) e " + summary.halfQuantity + " meia(s), totalizando " + summary.totalQuantity + " convite(s)." +
-          " Valores: inteira R$ 50,00 e meia entrada R$ 25,00." +
-          " Total estimado: " + formatCurrency(summary.totalValue) + "." +
-          " Regra da meia entrada: " + halfTicketRules + "." +
-          " Local do evento: " + eventPlace + " (" + eventMapsUrl + ")." +
-          " A pulseira deve ser retirada na " + pickupPlace +
-          ", no endereço: " + pickupAddress +
-          ". Localização da retirada: " + pickupMapsUrl + ".";
+        const input = document.createElement('input');
+        input.value = text;
+        input.setAttribute('readonly', '');
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        input.remove();
+      };
 
-        if (note.length > 0) {
-          message += " Observação: " + note + ".";
+      const getTicketSummary = () => {
+        const ticketQuantity = normalizeQuantity($(SELECTOR.ticketQuantityInput)?.value);
+        const ticketValue = ticketQuantity * EVENT.ticketPrice;
+
+        return {
+          ticketQuantity,
+          ticketValue,
+          totalQuantity: ticketQuantity,
+          totalValue: ticketValue
+        };
+      };
+
+      const updateText = (selector, value, scope = document) => {
+        const element = $(selector, scope);
+        if (element) {
+          element.textContent = value;
+        }
+      };
+
+      const updateTotalPrice = () => {
+        const summary = getTicketSummary();
+
+        updateText('[data-total="ticketQuantity"]', summary.ticketQuantity);
+        updateText('[data-total="ticketValue"]', formatCurrency(summary.ticketValue));
+        updateText('[data-total="quantity"]', summary.totalQuantity);
+        updateText('[data-total="value"]', formatCurrency(summary.totalValue));
+      };
+
+      const getDefaultMessage = () => (
+        `Olá! Gostaria de reservar convite(s) para o ${EVENT.title}.`
+      );
+
+      const openWhatsApp = message => {
+        window.open(buildWhatsAppUrl(message), '_blank', 'noopener,noreferrer');
+      };
+
+      const renderPickupRules = () => {
+        const pickup = getPickupInfo();
+        const pickupCard = $(SELECTOR.pickupCard);
+
+        updateText(SELECTOR.pickupTitle, pickup.title);
+        updateText(SELECTOR.pickupPrimary, pickup.primary);
+        updateText(SELECTOR.pickupSecondary, pickup.secondary);
+        updateText(SELECTOR.modalPickupLine, pickup.modalLine);
+        updateText(SELECTOR.footerPickupLine, pickup.footerLine);
+
+        const pickupSummary = $(SELECTOR.pickupSummary);
+        if (pickupSummary) {
+          pickupSummary.innerHTML = `<i class="bi bi-bag-check me-2 text-gold-soft" aria-hidden="true"></i>${pickup.summaryLine}`;
         }
 
-        window.open(buildWhatsAppUrl(message), "_blank", "noopener,noreferrer");
-      });
+        if (pickupCard) {
+          if (pickup.hasMap) {
+            pickupCard.href = EVENT.pickupMapsUrl;
+            pickupCard.target = '_blank';
+            pickupCard.rel = 'noopener noreferrer';
+            pickupCard.style.cursor = 'pointer';
+          } else {
+            pickupCard.removeAttribute('href');
+            pickupCard.removeAttribute('target');
+            pickupCard.removeAttribute('rel');
+            pickupCard.style.cursor = 'default';
+            $(SELECTOR.pickupCardAction, pickupCard)?.remove();
+          }
+        }
 
-      function setEventYear() {
+        if (!pickup.hasMap) {
+          $$(SELECTOR.pickupLink).forEach(link => {
+            link.classList.add('is-hidden');
+            link.setAttribute('aria-hidden', 'true');
+            link.setAttribute('tabindex', '-1');
+          });
+        }
+      };
+
+      const renderFooterContacts = () => {
+        const footerPhoneLink = $(SELECTOR.footerPhoneLink);
+        const footerPhoneLabel = $(SELECTOR.footerPhoneLabel);
+        const footerWhatsAppLink = $(SELECTOR.footerWhatsAppLink);
+        const footerWhatsAppLabel = $(SELECTOR.footerWhatsAppLabel);
+
+        if (footerPhoneLink && activeSeller.phone) {
+          footerPhoneLink.href = `tel:+${activeSeller.phone}`;
+          footerPhoneLink.setAttribute('aria-label', `Ligar para ${activeSeller.name}: ${activeSeller.phoneLabel}`);
+        }
+
+        if (footerPhoneLabel) {
+          footerPhoneLabel.textContent = activeSeller.phoneLabel;
+        }
+
+        if (footerWhatsAppLink) {
+          footerWhatsAppLink.setAttribute('aria-label', `Reservar convite pelo WhatsApp com ${activeSeller.name}: ${activeSeller.whatsappLabel}`);
+        }
+
+        if (footerWhatsAppLabel) {
+          footerWhatsAppLabel.textContent = activeSeller.whatsappLabel;
+        }
+      };
+
+      const renderSellerInfo = () => {
+        const sellerTitle = activeSeller.isOfficial ? 'Atendimento oficial' : 'Vendedor responsável';
+        const sellerText = activeSeller.isOfficial ?
+          'As reservas serão direcionadas para o WhatsApp oficial do evento.' :
+          `As reservas deste link serão direcionadas para o WhatsApp de ${activeSeller.name}. A retirada da pulseira será combinada diretamente com este vendedor.`;
+
+        const sellerInfo = createElementFromHtml(`
+          <div class="alert rounded-2 mb-4 message-box seller-info-box">
+            <div class="d-flex align-items-start gap-3">
+              <div class="info-card__icon flex-shrink-0" aria-hidden="true"><i class="bi bi-person-badge"></i></div>
+              <div>
+                <div class="small text-uppercase fw-bold text-gold-soft">${sellerTitle}</div>
+                <div class="fw-bold">${activeSeller.name}</div>
+                <div class="small text-muted-gold">${sellerText}</div>
+                <div class="small mt-1 text-muted-gold"><i class="bi bi-whatsapp me-1" aria-hidden="true"></i>${activeSeller.whatsappLabel}</div>
+              </div>
+            </div>
+          </div>
+        `);
+
+        const quickActions = $(SELECTOR.quickActions);
+        if (quickActions && !$('.seller-info-box')) {
+          quickActions.before(sellerInfo);
+        }
+
+        const modalBody = $(SELECTOR.modalBody);
+        if (modalBody && !$('.seller-modal-box', modalBody)) {
+          modalBody.prepend(createElementFromHtml(`
+            <div class="alert rounded-2 message-box mb-3 seller-modal-box">
+              <strong>Destino da reserva:</strong> ${activeSeller.name}
+              <div class="small mt-1 text-muted-gold">O WhatsApp será aberto diretamente para este contato.</div>
+            </div>
+          `));
+        }
+
+        if (sellerWasRequested && !sellerWasFound) {
+          const contentSections = $(SELECTOR.contentSections);
+          contentSections?.prepend(createElementFromHtml(`
+            <div class="section-wrap">
+              <div class="alert rounded-2 message-box mb-4 seller-warning-box">
+                <strong>Vendedor não encontrado:</strong> ${requestedSellerSlug}
+                <div class="small mt-1 text-muted-gold">A reserva será direcionada para o atendimento oficial do evento.</div>
+              </div>
+            </div>
+          `));
+        }
+
+        $$(SELECTOR.whatsappLink).forEach(link => {
+          link.setAttribute('aria-label', `Reservar convite pelo WhatsApp com ${activeSeller.name}`);
+        });
+
+        const phoneButton = $(SELECTOR.phoneButton);
+        if (phoneButton && activeSeller.phone) {
+          phoneButton.href = `tel:+${activeSeller.phone}`;
+          phoneButton.innerHTML = `<i class="bi bi-telephone me-2" aria-hidden="true"></i>Ligar: ${activeSeller.phoneLabel}`;
+          phoneButton.setAttribute('aria-label', `Ligar para ${activeSeller.name}`);
+        }
+      };
+
+      const renderSellerLinksPanel = () => {
+        if (normalizeSlug(getUrlParam('admin')) !== 'vendedores') {
+          return;
+        }
+
+        const rows = [normalizedOfficialSeller, ...normalizedSellers].map(seller => {
+          const link = seller.isOfficial ? getBaseEventUrl() : getSellerLink(seller);
+
+          return `
+            <div class="ticket-input-card mb-3">
+              <div class="row g-3 align-items-center">
+                <div class="col-lg-3">
+                  <div class="fw-bold text-gold-soft">${seller.name}</div>
+                  <div class="small text-muted-gold">${seller.phoneLabel}</div>
+                  <div class="small text-muted-gold">Slug: ${seller.slug}</div>
+                </div>
+                <div class="col-lg">
+                  <input class="form-control rounded-2 js-seller-link-input" type="text" value="${link}" readonly aria-label="Link de divulgação de ${seller.name}">
+                </div>
+                <div class="col-lg-auto">
+                  <button class="btn btn-outline-warning rounded-pill px-4 js-copy-seller-link" type="button" data-link="${link}">
+                    <i class="bi bi-clipboard me-2" aria-hidden="true"></i>Copiar link
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        const panel = createElementFromHtml(`
+          <div class="section-wrap">
+            <section class="glass-card quick-card mb-4 reveal is-visible seller-panel" id="sellerLinksPanel" aria-labelledby="sellerLinksTitle">
+              <div class="text-center mb-4">
+                <p class="eyebrow mb-2">Controle interno</p>
+                <h2 class="section-title h1 mb-0" id="sellerLinksTitle">Links dos vendedores</h2>
+                <p class="mt-3 mb-0 text-muted-gold">Copie o link de cada vendedor e envie individualmente para divulgação.</p>
+              </div>
+              ${rows}
+            </section>
+          </div>
+        `);
+
+        $(SELECTOR.contentSections)?.prepend(panel);
+      };
+
+      const setEventTargetDate = () => {
         const now = new Date();
         let year = now.getFullYear();
-        let target = new Date(year, 5, 25, 19, 30, 0);
+        let target = new Date(year, EVENT.monthIndex, EVENT.day, EVENT.hour, EVENT.minute, 0);
 
         if (target.getTime() < now.getTime()) {
           year += 1;
-          target = new Date(year, 5, 25, 19, 30, 0);
+          target = new Date(year, EVENT.monthIndex, EVENT.day, EVENT.hour, EVENT.minute, 0);
         }
 
         return target;
-      }
+      };
 
-      const targetDate = setEventYear();
+      const targetDate = setEventTargetDate();
 
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = targetDate.getTime() - now;
+      const updateCountdown = () => {
+        const distance = targetDate.getTime() - Date.now();
+        const values = distance <= 0 ? {
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0
+        } : {
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        };
 
-        if (distance <= 0) {
-          $("#days").text("00");
-          $("#hours").text("00");
-          $("#minutes").text("00");
-          $("#seconds").text("00");
+        Object.entries(values).forEach(([key, value]) => {
+          updateText(`[data-countdown="${key}"]`, String(value).padStart(2, '0'));
+        });
+      };
+
+      const revealOnScroll = () => {
+        const elements = $$(SELECTOR.reveal);
+
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, {
+            threshold: .12,
+            rootMargin: '0px 0px -40px 0px'
+          });
+
+          elements.forEach(element => observer.observe(element));
           return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        $("#days").text(String(days).padStart(2, "0"));
-        $("#hours").text(String(hours).padStart(2, "0"));
-        $("#minutes").text(String(minutes).padStart(2, "0"));
-        $("#seconds").text(String(seconds).padStart(2, "0"));
-      }
-
-      updateCountdown();
-      updateTotalPrice();
-      setInterval(updateCountdown, 1000);
-
-      function revealOnScroll() {
-        const windowBottom = $(window).scrollTop() + $(window).height();
-
-        $(".reveal").each(function () {
-          const elementTop = $(this).offset().top + 40;
-
-          if (windowBottom > elementTop) {
-            $(this).addClass("is-visible");
-          }
-        });
-      }
-
-      revealOnScroll();
-      $(window).on("scroll resize", revealOnScroll);
-
-      $("#shareButton").on("click", async function () {
-        const shareData = {
-          title: eventTitle,
-          text: "Reserve seu convite para o " + eventTitle + " - " + eventDate + ", " + eventTime + ", " + eventPlace + ".",
-          url: window.location.href
+        const revealFallback = () => {
+          const windowBottom = window.scrollY + window.innerHeight;
+          elements.forEach(element => {
+            if (windowBottom > element.offsetTop + 40) {
+              element.classList.add('is-visible');
+            }
+          });
         };
 
-        if (navigator.share) {
-          try {
-            await navigator.share(shareData);
-          } catch (error) {}
-        } else if (navigator.clipboard) {
-          navigator.clipboard.writeText(window.location.href).then(function () {
-            const $button = $("#shareButton");
-            const originalText = $button.html();
+        revealFallback();
+        window.addEventListener('scroll', revealFallback, {
+          passive: true
+        });
+        window.addEventListener('resize', revealFallback);
+      };
 
-            $button.html('<i class="bi bi-check2 me-2"></i>Link copiado');
+      const bindComposerHeroHover = () => {
+        const targets = $$(SELECTOR.composerTarget);
+        const cards = $$(SELECTOR.composerCard);
 
-            setTimeout(function () {
-              $button.html(originalText);
-            }, 1800);
-          });
+        if (!targets.length || !cards.length) {
+          return;
         }
-      });
-    });
+
+        const clearActiveComposer = () => {
+          targets.forEach(target => target.classList.remove('is-active'));
+          cards.forEach(card => card.classList.remove('is-active'));
+        };
+
+        const activateComposer = key => {
+          if (!key) {
+            return;
+          }
+
+          targets.forEach(target => {
+            target.classList.toggle('is-active', target.dataset.composerTarget === key);
+          });
+
+          cards.forEach(card => {
+            card.classList.toggle('is-active', card.dataset.composerCard === key);
+          });
+        };
+
+        targets.forEach(target => {
+          const key = target.dataset.composerTarget;
+
+          target.addEventListener('mouseenter', () => activateComposer(key));
+          target.addEventListener('focus', () => activateComposer(key));
+          target.addEventListener('mouseleave', clearActiveComposer);
+          target.addEventListener('blur', clearActiveComposer);
+        });
+
+        cards.forEach(card => {
+          const key = card.dataset.composerCard;
+
+          card.addEventListener('mouseenter', () => activateComposer(key));
+          card.addEventListener('focusin', () => activateComposer(key));
+          card.addEventListener('mouseleave', clearActiveComposer);
+          card.addEventListener('focusout', clearActiveComposer);
+        });
+      };
+
+      const bindWhatsAppLinks = () => {
+        $$(SELECTOR.whatsappLink).forEach(link => {
+          link.addEventListener('click', event => {
+            event.preventDefault();
+            openWhatsApp(getDefaultMessage());
+          });
+        });
+      };
+
+      const bindTicketInputs = () => {
+        $$(SELECTOR.ticketQuantity).forEach(input => {
+          input.addEventListener('input', () => {
+            input.value = normalizeQuantity(input.value);
+            updateTotalPrice();
+          });
+
+          input.addEventListener('change', () => {
+            input.value = normalizeQuantity(input.value);
+            updateTotalPrice();
+          });
+        });
+      };
+
+      const bindReservationForm = () => {
+        const form = $(SELECTOR.reservationForm);
+        if (!form) {
+          return;
+        }
+
+        form.addEventListener('submit', event => {
+          event.preventDefault();
+
+          const guestName = $(SELECTOR.guestName)?.value.trim() || '';
+          const guestNote = $(SELECTOR.guestNote)?.value.trim() || '';
+          const summary = getTicketSummary();
+
+          form.classList.add('was-validated');
+
+          if (!guestName || !form.checkValidity()) {
+            return;
+          }
+
+          if (summary.totalQuantity < 1) {
+            alert('Informe pelo menos 1 convite.');
+            return;
+          }
+
+          let message =
+            `Olá! Meu nome é ${guestName}.` +
+            ` Gostaria de reservar convite(s) para o ${EVENT.title}.` +
+            ` Quantidade de convites: ${summary.ticketQuantity}.` +
+            ` Total calculado: ${formatCurrency(summary.totalValue)}.`;
+
+          if (guestNote.length > 0) {
+            message += ` Observação: ${guestNote}.`;
+          }
+
+          openWhatsApp(message);
+        });
+      };
+
+      const bindShareButton = () => {
+        const button = $(SELECTOR.shareButton);
+        if (!button) {
+          return;
+        }
+
+        button.addEventListener('click', async () => {
+          const shareUrl = getCurrentShareUrl();
+          const shareData = {
+            title: EVENT.title,
+            text: `Reserve seu convite para o ${EVENT.title} - ${EVENT.dateLabel}, ${EVENT.timeLabel}, ${EVENT.place}.`,
+            url: shareUrl
+          };
+
+          if (navigator.share) {
+            try {
+              await navigator.share(shareData);
+            } catch (error) {
+              return;
+            }
+            return;
+          }
+
+          const originalHtml = button.innerHTML;
+          await copyTextToClipboard(shareUrl);
+          button.innerHTML = '<i class="bi bi-check2 me-2" aria-hidden="true"></i>Link copiado';
+          window.setTimeout(() => {
+            button.innerHTML = originalHtml;
+          }, 1800);
+        });
+      };
+
+      const bindSellerPanel = () => {
+        document.addEventListener('focusin', event => {
+          if (event.target.matches('.js-seller-link-input')) {
+            event.target.select();
+          }
+        });
+
+        document.addEventListener('click', async event => {
+          const button = event.target.closest('.js-copy-seller-link');
+          if (!button) {
+            return;
+          }
+
+          const originalHtml = button.innerHTML;
+          await copyTextToClipboard(button.dataset.link || '');
+          button.innerHTML = '<i class="bi bi-check2 me-2" aria-hidden="true"></i>Copiado';
+          window.setTimeout(() => {
+            button.innerHTML = originalHtml;
+          }, 1800);
+        });
+      };
+
+
+
+      const bindNavigationState = () => {
+        const links = $$('.primary-nav__link[href^="#"], .event-menu__link[href^="#"]');
+        const sections = [...new Set(links
+          .map(link => link.getAttribute('href'))
+          .filter(Boolean)
+          .map(hash => document.getElementById(hash.slice(1)))
+          .filter(Boolean))];
+
+        if (!links.length || !sections.length) {
+          return;
+        }
+
+        const setActiveSection = id => {
+          links.forEach(link => {
+            const isActive = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('is-active', isActive);
+
+            if (isActive) {
+              link.setAttribute('aria-current', 'page');
+            } else {
+              link.removeAttribute('aria-current');
+            }
+          });
+        };
+
+        const getCurrentSectionId = () => {
+          const offset = Math.min(window.innerHeight * .36, 320);
+          let current = sections[0];
+
+          sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= offset) {
+              current = section;
+            }
+          });
+
+          return current?.id || sections[0].id;
+        };
+
+        let ticking = false;
+        const updateActiveSection = () => {
+          if (ticking) {
+            return;
+          }
+
+          ticking = true;
+          window.requestAnimationFrame(() => {
+            setActiveSection(getCurrentSectionId());
+            ticking = false;
+          });
+        };
+
+        links.forEach(link => {
+          link.addEventListener('click', () => {
+            const targetId = link.getAttribute('href')?.slice(1);
+            if (targetId) {
+              setActiveSection(targetId);
+            }
+          });
+        });
+
+        updateActiveSection();
+        window.addEventListener('scroll', updateActiveSection, {
+          passive: true
+        });
+        window.addEventListener('resize', updateActiveSection);
+        window.addEventListener('hashchange', updateActiveSection);
+      };
+
+      const init = () => {
+        renderFooterContacts();
+        renderSellerInfo();
+        renderPickupRules();
+        renderSellerLinksPanel();
+        updateTotalPrice();
+        updateCountdown();
+        bindWhatsAppLinks();
+        bindComposerHeroHover();
+        bindTicketInputs();
+        bindReservationForm();
+        bindShareButton();
+        bindSellerPanel();
+        bindNavigationState();
+        revealOnScroll();
+        window.setInterval(updateCountdown, 1000);
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, {
+          once: true
+        });
+      } else {
+        init();
+      }
+    })();
   </script>
 </body>
+
 </html>
